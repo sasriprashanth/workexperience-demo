@@ -985,6 +985,107 @@
     font-weight: 700;
   }
 
+  .dil-divider{
+    padding: 28px 0 6px;
+    text-align: center;
+  }
+  .dil-divider-label{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: var(--amber);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .dil-divider-text{
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--slate-light);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ---------- AI USE CASE ---------- */
+  .ai-usecase-section{ padding: 10px 0 60px; }
+  .ai-usecase-head{ margin-bottom: 22px; }
+  .ai-usecase-head h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin: 10px 0 10px;
+  }
+  .ai-usecase-head p{
+    color: var(--slate-light);
+    font-size: 0.96rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0;
+  }
+  .ai-usecase-card{
+    background: var(--parchment);
+    color: var(--ink-deep);
+    border-radius: 16px;
+    padding: 28px 30px;
+  }
+  .ai-usecase-feature{
+    background: var(--ink-deep);
+    color: var(--parchment);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 22px;
+  }
+  .ai-usecase-tag{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--amber);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .ai-usecase-feature p{
+    font-size: 0.96rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .ai-usecase-roles{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  @media (max-width: 700px){
+    .ai-usecase-roles{ grid-template-columns: 1fr; }
+  }
+  .ai-usecase-role{
+    background: rgba(22,33,62,0.04);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+  }
+  .aiur-name{
+    font-weight: 700;
+    font-size: 0.88rem;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .aiur-does{
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #3A3A3A;
+    display: block;
+  }
+  .ai-usecase-caveat{
+    background: rgba(214,90,74,0.1);
+    border-left: 3px solid var(--coral);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+  .ai-usecase-caveat b{ color: var(--coral); }
+
   /* ---------- TRENDS PAGE ---------- */
   .trend-grid{
     display: grid;
@@ -1561,6 +1662,41 @@
 <div class="wrap">
   <div class="dayinlife-grid" id="dayinlifeGrid"></div>
 </div>
+
+<section class="wrap ai-usecase-section">
+  <div class="ai-usecase-head">
+    <span class="eyebrow"><span class="dot"></span> A REAL AI USE CASE</span>
+    <h2>What if CLM-1842 used AI too?</h2>
+    <p>Here's a realistic next step for the same claims-photo feature you've followed through this whole site — and exactly where each of the four new roles above would actually touch it.</p>
+  </div>
+  <div class="ai-usecase-card">
+    <div class="ai-usecase-feature">
+      <span class="ai-usecase-tag">Proposed feature</span>
+      <p><b>Automatically estimate the type and severity of damage</b> from the photo a customer uploads, so the claims handler sees a head start instead of a blank photo to assess from scratch.</p>
+    </div>
+    <div class="ai-usecase-roles">
+      <div class="ai-usecase-role">
+        <span class="aiur-name">AI/ML Engineer</span>
+        <span class="aiur-does">Trains the model on thousands of past labelled claim photos so it can recognise patterns like dents, cracks, and scrapes.</span>
+      </div>
+      <div class="ai-usecase-role">
+        <span class="aiur-name">Prompt Engineer / AI Interaction Designer</span>
+        <span class="aiur-does">Shapes how the model explains its reasoning in plain English, so the handler can see <i>why</i> it reached that assessment.</span>
+      </div>
+      <div class="ai-usecase-role">
+        <span class="aiur-name">AI Product Manager</span>
+        <span class="aiur-does">Decides how confident the model needs to be before its assessment is trusted without a human double-check.</span>
+      </div>
+      <div class="ai-usecase-role">
+        <span class="aiur-name">MLOps / AI Platform Engineer</span>
+        <span class="aiur-does">Watches the model's accuracy over time — claim photos in winter, at night, or after a storm can all look different to what it was trained on.</span>
+      </div>
+    </div>
+    <div class="ai-usecase-caveat">
+      <b>The honest caveat:</b> the model can get it wrong, especially on unusual or rare types of damage. That's exactly why a claims handler still reviews every assessment rather than acting on it automatically — the AI speeds things up, it doesn't replace the judgement call.
+    </div>
+  </div>
+</section>
 
 </div>
 
@@ -2283,7 +2419,7 @@ const evolution = [
     tag: 'process',
     title: 'Agentic AI',
     blurb: "The next step beyond generative AI: instead of just producing an answer when asked, an AI agent can plan multiple steps and take actions on its own — checking a system, fixing a bug, deploying a fix.",
-    detail: "Generative AI reacts to a prompt; agentic AI pursues a goal across several steps with much less hand-holding.",
+    detail: "Generative AI reacts to a prompt; agentic AI pursues a goal across several steps with much less hand-holding. This shift is exactly what's created the new roles on the Day in the Life tab — AI/ML Engineer, Prompt Engineer, AI Product Manager, and MLOps Engineer barely existed as job titles before this.",
     sourceLabel: 'IBM: Agentic AI vs Generative AI',
     sourceUrl: 'https://www.ibm.com/think/topics/agentic-ai-vs-generative-ai'
   },
@@ -2463,14 +2599,71 @@ const dayInLife = [
       "Apprenticeship — IT Support or Service Desk apprenticeships are widely available and often hire straight from school",
       "Direct entry plus certification — many companies hire with on-the-job training, often followed by an ITIL certification (a widely recognised IT service management qualification)"
     ]
+  },
+  { isDivider: true, dividerLabel: "...and here's what's brand new", dividerText: "These four roles barely existed five years ago. They've grown up alongside the AI tools you've already seen mentioned on this site — and they sit alongside the roles above, not instead of them." },
+  {
+    role: 'AI / ML Engineer',
+    tagline: 'Builds the AI model and wires it into the real product',
+    quote: "\"This morning was training a model on thousands of old claim photos labelled by severity. This afternoon was the less glamorous part — making sure it actually runs fast enough inside the real claims app, not just in my notebook.\"",
+    salaryMin: 44000, salaryMax: 130000,
+    salaryNote: "UK-wide range, junior AI/ML Engineer to senior specialist roles.",
+    routes: [
+      "University degree — Computer Science, Maths, Physics, or Engineering degrees are common; specific AI/ML modules help but aren't always essential at entry level",
+      "Apprenticeship — genuine Level 6/7 AI Engineer apprenticeships now exist that need no prior degree or AI experience to start",
+      "Self-taught and portfolio-led — a real, documented route exists of people moving in from adjacent science or engineering backgrounds via personal ML projects, with no bootcamp or CS degree"
+    ]
+  },
+  {
+    role: 'Prompt Engineer / AI Interaction Designer',
+    tagline: 'Designs how people and AI actually talk to each other',
+    quote: "\"Half my day was rewriting the instructions we give the AI model so it explains its damage assessment in plain English instead of technical jargon a claims handler has to decode. The other half was testing what happens when a customer uploads something completely unexpected.\"",
+    salaryMin: 45000, salaryMax: 100000,
+    salaryNote: "UK-wide range; this title and its boundaries are still genuinely settling industry-wide.",
+    routes: [
+      "University degree — linguistics, psychology, computer science, or UX-related degrees all feed into this role in different ways",
+      "Career move — many people arrive here from UX/UI Design, content/copywriting, or software engineering rather than via a dedicated entry route",
+      "No standard apprenticeship yet — this is one of the newest titles in tech, so most people currently grow into it from a related role rather than starting in it"
+    ]
+  },
+  {
+    role: 'AI Product Manager',
+    tagline: 'Decides which AI features are actually worth building',
+    quote: "\"A lot of today was a hard conversation: the AI damage-detection feature is impressive, but how confident does it need to be before we trust it without a human double-checking? That's a product decision, not just a technical one.\"",
+    salaryMin: 50000, salaryMax: 150000,
+    salaryNote: "UK-wide range; senior AI-specialised Product Manager roles at AI-heavy companies can exceed this.",
+    routes: [
+      "University degree — often a natural progression from a standard Product Manager / Product Owner background, any degree subject",
+      "Career move — most AI Product Managers move across from general Product Management once they've built hands-on experience with AI-powered features",
+      "Self-directed learning — short, focused AI-for-product-managers courses (rather than full degrees) are a common way existing PMs build the specific knowledge this role needs"
+    ]
+  },
+  {
+    role: 'MLOps / AI Platform Engineer',
+    tagline: 'Keeps AI models reliable once they\'re actually live',
+    quote: "\"This morning, the damage-detection model's accuracy had quietly dropped over the last month — claim photos in winter just look different to the ones it was trained on. That's called drift, and catching it before customers notice is basically my whole job.\"",
+    salaryMin: 50000, salaryMax: 120000,
+    salaryNote: "UK-wide range, junior MLOps Engineer to senior / specialist roles.",
+    routes: [
+      "University degree — Computer Science or Engineering degrees, often combined with experience in DevOps or cloud infrastructure",
+      "Career progression — this is usually a second-stage role, reached after a few years as a Backend, DevOps, or AI/ML Engineer",
+      "Cloud and ML-specific certifications (Azure, AWS, or platform-specific ML tooling) are a genuinely useful credential at any entry point into this role"
+    ]
   }
 ];
 
 function formatK(n){ return '£' + Math.round(n/1000) + 'k'; }
 
 const dilGridEl = document.getElementById('dayinlifeGrid');
-const dilGlobalMin = 22000, dilGlobalMax = 105000;
+const dilGlobalMin = 22000, dilGlobalMax = 150000;
 dilGridEl.innerHTML = dayInLife.map(r => {
+  if (r.isDivider) {
+    return `
+    <div class="dil-divider">
+      <span class="dil-divider-label">${r.dividerLabel}</span>
+      <p class="dil-divider-text">${r.dividerText}</p>
+    </div>
+  `;
+  }
   const leftPct = ((r.salaryMin - dilGlobalMin) / (dilGlobalMax - dilGlobalMin)) * 100;
   const widthPct = ((r.salaryMax - r.salaryMin) / (dilGlobalMax - dilGlobalMin)) * 100;
   return `
