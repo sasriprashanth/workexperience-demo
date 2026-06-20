@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Life of a User Story — How Software Actually Gets Built</title>
+<title>The Life of a Ticket — How Software Actually Gets Built</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -139,7 +139,7 @@
   /* ---------- STAGE TRACKER ---------- */
   .tracker-section{
     position: sticky;
-    top: 49px;
+    top: 0;
     z-index: 50;
     background: var(--ink-deep);
     border-bottom: 1px solid var(--line);
@@ -380,13 +380,10 @@
 
   .board{
     display:grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 14px;
   }
   @media (max-width: 880px){
-    .board{ grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 560px){
     .board{ grid-template-columns: 1fr; }
   }
 
@@ -459,212 +456,18 @@
     font-size: 0.85rem;
     text-align: center;
   }
-
-  /* ---------- TOP-LEVEL PAGE NAV ---------- */
-  .page-nav{
-    background: var(--ink-deep);
-    border-bottom: 1px solid var(--line);
-    position: sticky;
-    top: 0;
-    z-index: 60;
-  }
-  .page-nav-inner{
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 0 28px;
-    display: flex;
-    gap: 4px;
-    overflow-x: auto;
-  }
-  .page-tab{
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    color: var(--slate-light);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12.5px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 16px 6px;
-    margin-right: 22px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .page-tab:hover{ color: var(--parchment); }
-  .page-tab.active{ color: var(--amber); border-color: var(--amber); }
-  .page-tab:focus-visible{ outline: 2px solid var(--amber); outline-offset: 2px; }
-
-  .page{ display: none; }
-  .page.active{ display: block; }
-
-  /* ---------- TOOLS PAGE ---------- */
-  .page-hero{
-    padding: 56px 0 36px;
-  }
-  .page-hero .eyebrow{ margin-bottom: 18px; }
-  .page-hero h1{
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: clamp(2.1rem, 4.6vw, 3.1rem);
-    line-height: 1.08;
-    margin: 0 0 16px;
-    letter-spacing: -0.01em;
-  }
-  .page-hero h1 em{ font-style: italic; font-weight: 500; color: var(--amber); }
-  .page-hero p{
-    color: var(--slate-light);
-    font-size: 1.04rem;
-    line-height: 1.6;
-    max-width: 580px;
-    margin: 0;
-  }
-
-  .tool-stage-block{
-    padding: 38px 0;
-    border-top: 1px solid var(--line);
-  }
-  .tool-stage-head{
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-  }
-  .tool-stage-head .num{
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--amber);
-    font-size: 0.85rem;
-  }
-  .tool-stage-head h3{
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 1.4rem;
-    margin: 0;
-  }
-  .tool-stage-head .when{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--slate-light);
-    background: rgba(247,243,234,0.06);
-    padding: 4px 10px;
-    border-radius: 20px;
-  }
-
-  .tool-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
-  }
-  .tool-card{
-    background: var(--parchment);
-    color: var(--ink-deep);
-    border-radius: 12px;
-    padding: 18px 18px;
-  }
-  .tool-card .cat{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--slate);
-    margin-bottom: 8px;
-    display: block;
-  }
-  .tool-card h4{
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    margin: 0 0 6px;
-  }
-  .tool-card p{
-    font-size: 0.88rem;
-    line-height: 1.5;
-    margin: 0;
-    color: #3A3A3A;
-  }
-
-  /* ---------- TRENDS PAGE ---------- */
-  .trend-grid{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-    padding-bottom: 60px;
-  }
-  @media (max-width: 760px){
-    .trend-grid{ grid-template-columns: 1fr; }
-  }
-  .trend-card{
-    background: var(--parchment);
-    color: var(--ink-deep);
-    border-radius: 16px;
-    padding: 26px 26px 24px;
-    position: relative;
-    overflow: hidden;
-  }
-  .trend-card .trend-icon{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--slate);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-  .trend-card .trend-icon .swatch{
-    width: 10px; height: 10px; border-radius: 50%;
-  }
-  .trend-card h3{
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 1.32rem;
-    margin: 0 0 14px;
-    line-height: 1.15;
-  }
-  .trend-shift{
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    margin-bottom: 12px;
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-  .trend-shift .was{ color: #8a8170; text-decoration: line-through; flex: 1; }
-  .trend-shift .now{ color: var(--ink-deep); font-weight: 600; flex: 1; }
-  .trend-shift .arrow{ color: var(--amber); font-weight: 700; flex-shrink: 0; padding-top: 1px; }
-  .trend-why{
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: #3A3A3A;
-    border-top: 1px solid rgba(22,33,62,0.12);
-    padding-top: 14px;
-    margin-top: 14px;
-  }
-  .trend-why b{ color: var(--ink-deep); }
 </style>
 </head>
 <body>
-
-<nav class="page-nav">
-  <div class="page-nav-inner">
-    <button class="page-tab active" data-page="journey">The User Story's Journey</button>
-    <button class="page-tab" data-page="tools">Tools of the Trade</button>
-    <button class="page-tab" data-page="trends">What's Changing</button>
-  </div>
-</nav>
-
-<div class="page active" id="page-journey">
 
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow"><span class="dot"></span> WORK EXPERIENCE · WEEK BRIEFING</div>
     <h1 class="title">Follow one idea<br>from <em>sticky note</em> to <em>live in the app</em>.</h1>
-    <p class="hero-sub">Every feature you've ever used in an app went through the same journey. We're going to follow one User Story, start to finish, through the stages, the people, and the decisions it passes through.</p>
+    <p class="hero-sub">Every feature you've ever used in an app went through the same journey. We're going to follow one ticket, start to finish, through the stages, the people, and the decisions it passes through.</p>
     <div class="hero-card">
       <span class="ticket-id">CLM-1842</span>
-      <span class="ticket-desc">"<b>Let customers attach a photo when submitting a claim</b>" — click through the stages below to watch this User Story come to life.</span>
+      <span class="ticket-desc">"<b>Let customers attach a photo when submitting a claim</b>" — click through the stages below to watch this ticket come to life.</span>
     </div>
   </div>
 </section>
@@ -682,7 +485,7 @@
   <div class="tryit-head">
     <div class="stage-tag">Try it yourself</div>
     <h2>Build the team.</h2>
-    <p>Drag each role onto the stage where they do their <em>most important</em> work on this User Story. Some roles show up in more than one place in real life — but for this exercise, pick the single stage where they matter most.</p>
+    <p>Drag each role onto the stage where they do their <em>most important</em> work on this ticket. Some roles show up in more than one place in real life — but for this exercise, pick the single stage where they matter most.</p>
   </div>
 
   <div class="board" id="board">
@@ -697,44 +500,16 @@
 </section>
 
 <footer class="wrap">
-  Built for a one-to-one work experience walkthrough · CLM-1842 is a made-up User Story, but the stages, roles, and rhythm are real.
+  Built for a one-to-one work experience walkthrough · CLM-1842 is a made-up ticket, but the stages, roles, and rhythm are real.
 </footer>
-
-</div>
-
-<div class="page" id="page-tools">
-
-<section class="page-hero wrap">
-  <div class="eyebrow"><span class="dot"></span> THE ACTUAL SOFTWARE PEOPLE OPEN</div>
-  <h1>Same seven stages.<br>Here's what's <em>on screen</em>.</h1>
-  <p>CLM-1842 doesn't move between stages by magic — it moves because someone opens a specific tool, does a specific thing, and hands it on. Here's what's actually open on people's screens at each stage.</p>
-</section>
-
-<div class="wrap" id="toolStages"></div>
-
-</div>
-
-<div class="page" id="page-trends">
-
-<section class="page-hero wrap">
-  <div class="eyebrow"><span class="dot"></span> WHAT'S DIFFERENT FROM 10 YEARS AGO</div>
-  <h1>The job is the same.<br>The day-to-day is <em>not</em>.</h1>
-  <p>If you'd shadowed someone in this role a decade ago, a lot of this would look unrecognisable. Here's what's actually shifted — and why it matters if you're choosing what to study next.</p>
-</section>
-
-<div class="wrap">
-  <div class="trend-grid" id="trendGrid"></div>
-</div>
-
-</div>
 
 <script>
 // ---------------- DATA ----------------
 const stages = [
   {
-    id: 'idea',
-    name: 'Idea',
-    tag: 'Stage 1 of 7',
+    id: 'discovery',
+    name: 'Discovery',
+    tag: 'Stage 1 of 6',
     status: 'Backlog',
     assignee: 'Product Manager',
     sprint: '—',
@@ -747,32 +522,32 @@ const stages = [
         '<b>Engineering Lead</b> gives an early gut-check: is this even technically possible without months of work?'
       ]
     },
-    artifactLabel: 'Idea / discovery note',
+    artifactLabel: 'Discovery note',
     artifact: `<b>Problem:</b> 34% of claims calls are customers asking how to send photos.<br><br><b>Opportunity:</b> Let people attach photos directly in the claims form.<br><br><b>Impact if we do nothing:</b> Call centre stays overloaded; customers get frustrated during an already stressful moment (their car's been damaged).`
   },
   {
-    id: 'shaping',
-    name: 'Shaping / Elaboration',
-    tag: 'Stage 2 of 7',
+    id: 'definition',
+    name: 'Definition',
+    tag: 'Stage 2 of 6',
     status: 'Ready for Design',
-    assignee: 'Product Manager + Business Analyst',
+    assignee: 'Product Manager + Designer',
     sprint: 'Backlog refinement',
-    blurb: "The idea is approved. Now it has to become something specific enough for a designer and engineer to actually act on. This is where 'add photos' turns into precise rules — and gets written up as a User Story.",
+    blurb: "The idea is approved. Now it has to become something specific enough for a designer and engineer to actually act on. This is where 'add photos' turns into precise rules.",
     responsibilities: {
       title: 'Who does what',
       items: [
-        '<b>Product Manager</b> writes the User Story and acceptance criteria — the exact conditions for "done."',
+        '<b>Product Manager</b> writes the user story and acceptance criteria — the exact conditions for "done."',
         '<b>Business Analyst</b> checks this against insurance regulations — claim photos may be evidence, so there are rules about storage and retention.',
         '<b>Designer</b> starts early sketches of how the upload button might look on the existing form.'
       ]
     },
-    artifactLabel: 'User Story',
+    artifactLabel: 'User story',
     artifact: `<b>As a</b> customer submitting a claim<br><b>I want to</b> attach photos of the damage<br><b>So that</b> I don't have to call or post anything in<br><br><b>Acceptance criteria:</b><br>• Accepts JPEG/PNG up to 10MB<br>• Max 5 photos per claim<br>• Photo is visible to the claims handler within 1 minute`
   },
   {
     id: 'design',
     name: 'Design',
-    tag: 'Stage 3 of 7',
+    tag: 'Stage 3 of 6',
     status: 'In Design',
     assignee: 'UX/UI Designer',
     sprint: 'Sprint 14',
@@ -799,7 +574,7 @@ const stages = [
   {
     id: 'development',
     name: 'Development',
-    tag: 'Stage 4 of 7',
+    tag: 'Stage 4 of 6',
     status: 'In Progress',
     assignee: 'Software Engineer',
     sprint: 'Sprint 15',
@@ -812,83 +587,63 @@ const stages = [
         '<b>Engineer (any)</b> opens a <b>pull request</b> so a teammate reviews the code before it merges — a second pair of eyes catches mistakes early.'
       ]
     },
-    artifactLabel: 'Pull request — User Story CLM-1842',
+    artifactLabel: 'Pull request — CLM-1842',
     artifact: `<span style="color:var(--teal)">feature/claim-photo-upload</span> → main<br>+184 −12 lines · 2 files changed<br><br><b>Reviewer comment:</b> "What happens if the upload fails halfway through on a bad connection? Can we retry instead of losing the photo?"<br><b>Author:</b> "Good catch — added a retry with a clear error message."`
   },
   {
     id: 'testing',
     name: 'Testing',
-    tag: 'Stage 5 of 7',
+    tag: 'Stage 5 of 6',
     status: 'In QA',
     assignee: 'QA Engineer',
     sprint: 'Sprint 15',
-    blurb: "Before this reaches a real customer, several different kinds of testing try to break it on purpose — not just \"does it work,\" but \"is it fast enough\" and \"can it be hacked.\" Each type of testing catches a different kind of problem.",
+    blurb: "Before this reaches a real customer, someone tries hard to break it on purpose. Wrong file types, huge files, slow networks, weird phone models — testing finds the problems while they're still cheap to fix.",
     responsibilities: {
       title: 'Who does what',
       items: [
-        '<b>QA Engineer</b> runs functional test cases, plus automated checks that re-run this every time the code changes.',
-        '<b>Security Engineer</b> runs automated scans that check the code itself and the live app for weaknesses an attacker could exploit.',
-        '<b>Performance Engineer</b> simulates thousands of customers uploading photos at once, to check the system doesn\'t fall over.',
-        '<b>Software Engineer</b> fixes whatever fails and resubmits for retest.'
+        '<b>QA Engineer</b> runs the test cases below, plus tries to break it in ways no one planned for.',
+        '<b>Software Engineer</b> fixes whatever fails and resubmits for retest.',
+        '<b>Product Manager</b> does final sign-off against the original acceptance criteria.'
       ]
     },
-    artifactLabel: 'Test results — four kinds of testing',
+    artifactLabel: 'Test cases',
     artifact: `<ul class="checklist">
-      <li><span class="box pass"></span> <b>Functional</b> (Playwright) — automated test re-runs all 14 upload scenarios on every code change, in under 3 minutes</li>
-      <li><span class="box fail"></span> <b>Security · SAST</b> (Snyk) — scan of the code itself flags one outdated image-processing library with a known vulnerability</li>
-      <li><span class="box pass"></span> <b>Security · DAST</b> (Invicti) — scan of the live running app finds no way to bypass the file-type check</li>
-      <li><span class="box pass"></span> <b>Performance</b> (JMeter / Azure Load Testing) — 5,000 simulated uploads at once, page stays under 2 second response time</li>
+      <li><span class="box pass"></span> Upload a 2MB JPEG — succeeds</li>
+      <li><span class="box pass"></span> Upload a PDF — correctly rejected with a clear message</li>
+      <li><span class="box fail"></span> Upload on slow 3G connection — <span style="color:var(--coral)">times out silently, no error shown</span></li>
+      <li><span class="box pass"></span> Upload 6 photos — correctly blocked at 5</li>
     </ul>`
   },
   {
-    id: 'deployment',
-    name: 'Deployment',
-    tag: 'Stage 6 of 7',
-    status: 'Deploying',
-    assignee: 'Engineering Lead',
+    id: 'release',
+    name: 'Release',
+    tag: 'Stage 6 of 6',
+    status: 'Live',
+    assignee: 'Whole team',
     sprint: 'Sprint 16',
-    blurb: "Testing is signed off, so now the feature actually goes live — usually to a small slice of customers first, in case something only shows up at real-world scale.",
+    blurb: "The fix from testing goes back through one more check, then the feature ships — often to a small slice of customers first, in case something only shows up at real-world scale. Then the team watches what actually happens.",
     responsibilities: {
       title: 'Who does what',
       items: [
         '<b>Engineering Lead</b> releases it to 5% of customers first, watching closely before rolling out to everyone.',
-        '<b>DevOps / Platform Engineer</b> runs the automated pipeline that pushes the code live and watches the dashboards as it goes out.',
-        '<b>Product Manager</b> confirms the rollout matches what was agreed in the User Story before sign-off.'
+        '<b>Product Manager</b> tracks whether call-centre volume actually drops, the metric this whole ticket was meant to move.',
+        '<b>Customer Support</b> keeps an ear out for any new confusion the change might cause.'
       ]
     },
-    artifactLabel: 'Deployment log',
-    artifact: `<b>User Story CLM-1842 — Photo upload on claims form</b><br>Deploying to 5% of customers · 14 Nov, 09:02<br><br>✓ Build passed · ✓ Security scan clear · ✓ Health checks green<br><br><i>Auto-rollback armed: if error rate exceeds 1%, this release reverts automatically.</i>`
-  },
-  {
-    id: 'support',
-    name: 'Support',
-    tag: 'Stage 7 of 7',
-    status: 'Live',
-    assignee: 'Customer Support + Engineering',
-    sprint: 'Business as usual',
-    blurb: "Shipping isn't the finish line. Once it's live, the team watches what actually happens, fixes anything that slips through, and feeds what they learn straight back into the next idea.",
-    responsibilities: {
-      title: 'Who does what',
-      items: [
-        '<b>Customer Support</b> handles any new questions or confusion the change might cause, and logs anything unexpected.',
-        '<b>Product Manager</b> tracks whether call-centre volume actually drops, the metric this whole User Story was meant to move.',
-        '<b>Software Engineer</b> picks up any bugs reported after release — often within hours, not weeks.'
-      ]
-    },
-    artifactLabel: 'Support & impact note',
-    artifact: `<b>Result after 2 weeks:</b> Claims-related calls down 21%. Customers now attach a photo in under 90 seconds on average.<br><br><b>Support log:</b> 3 tickets raised — all about photo upload failing on one older Android browser, now fixed and redeployed.<br><br><i>Already in the backlog: letting customers add a short video too.</i>`
+    artifactLabel: 'Release note',
+    artifact: `<b>CLM-1842 — Photo upload on claims form</b><br>Rolled out to 100% of customers, 14 Nov.<br><br><b>Result after 2 weeks:</b> Claims-related calls down 21%. Customers now attach a photo in under 90 seconds on average.<br><br><i>Already in the backlog: letting customers add a short video too.</i>`
   }
 ];
 
 const roles = [
-  { id:'pm', label:'Product Manager', color:'#E8A33D', correct:'idea' },
-  { id:'ba', label:'Business Analyst', color:'#8B97B5', correct:'shaping' },
+  { id:'pm', label:'Product Manager', color:'#E8A33D', correct:'discovery' },
+  { id:'ba', label:'Business Analyst', color:'#8B97B5', correct:'definition' },
   { id:'designer', label:'UX/UI Designer', color:'#D65A4A', correct:'design' },
   { id:'frontend', label:'Frontend Engineer', color:'#2E8B7A', correct:'development' },
   { id:'backend', label:'Backend Engineer', color:'#2E8B7A', correct:'development' },
   { id:'qa', label:'QA Engineer', color:'#5C6B8A', correct:'testing' },
-  { id:'devops', label:'DevOps Engineer', color:'#E8A33D', correct:'deployment' },
-  { id:'support', label:'Customer Support', color:'#D65A4A', correct:'support' }
+  { id:'eng-lead', label:'Engineering Lead', color:'#E8A33D', correct:'release' },
+  { id:'support', label:'Customer Support', color:'#D65A4A', correct:'release' }
 ];
 
 // ---------------- STAGE TRACKER ----------------
@@ -920,7 +675,7 @@ function renderStage(){
         <p class="stage-blurb">${s.blurb}</p>
       </div>
       <div class="ticket-state">
-        <div class="row"><span class="k">User Story</span><span class="v">CLM-1842</span></div>
+        <div class="row"><span class="k">Ticket</span><span class="v">CLM-1842</span></div>
         <div class="row"><span class="k">Status</span><span class="v status">${s.status}</span></div>
         <div class="row"><span class="k">Owner</span><span class="v">${s.assignee}</span></div>
         <div class="row"><span class="k">Sprint</span><span class="v">${s.sprint}</span></div>
@@ -941,7 +696,7 @@ function renderStage(){
     <div class="nav-buttons">
       <button class="nav-btn" id="prevBtn" ${currentStage === 0 ? 'disabled' : ''}>← Previous stage</button>
       <button class="nav-btn primary" id="nextBtn" ${currentStage === stages.length - 1 ? 'disabled' : ''}>
-        ${currentStage === stages.length - 1 ? 'User Story complete' : 'Next stage →'}
+        ${currentStage === stages.length - 1 ? 'Ticket complete' : 'Next stage →'}
       </button>
     </div>
   `;
@@ -967,19 +722,28 @@ const pool = document.getElementById('pool');
 const board = document.getElementById('board');
 const feedbackEl = document.getElementById('feedback');
 
-// build one lane per stage, generated directly from the stages array
-stages.forEach(s => {
+// build 5 lanes for the 5 "team-relevant" stages (collapse discovery+definition into one set of targets matching role 'correct' values)
+const laneStages = ['discovery', 'definition', 'design', 'development', 'testing-release'];
+const laneNames = {
+  'discovery': 'Discovery',
+  'definition': 'Definition',
+  'design': 'Design',
+  'development': 'Development',
+  'testing-release': 'Testing & Release'
+};
+
+// build lanes after pool-lane
+laneStages.forEach(id => {
   const lane = document.createElement('div');
   lane.className = 'lane';
-  lane.dataset.lane = s.id;
-  lane.innerHTML = `<h4>${s.name}</h4><div class="lane-cards"></div>`;
+  lane.dataset.lane = id;
+  lane.innerHTML = `<h4>${laneNames[id]}</h4><div class="lane-cards"></div>`;
   board.appendChild(lane);
 });
 
-const laneNames = Object.fromEntries(stages.map(s => [s.id, s.name]));
-
-// each role maps directly onto its one correct stage id
+// map role.correct values onto lane ids used in the board (testing & release combined)
 function laneForRole(role){
+  if (role.correct === 'testing' || role.correct === 'release') return 'testing-release';
   return role.correct;
 }
 
@@ -1060,158 +824,6 @@ document.getElementById('resetBoard').addEventListener('click', () => {
   feedbackEl.textContent = 'Drag a role card into a stage to begin.';
   feedbackEl.className = 'feedback';
 });
-
-// ---------------- PAGE TAB SWITCHING ----------------
-function syncStickyOffset(){
-  const nav = document.querySelector('.page-nav');
-  const tracker = document.querySelector('.tracker-section');
-  if (nav && tracker) tracker.style.top = nav.offsetHeight + 'px';
-}
-syncStickyOffset();
-window.addEventListener('resize', syncStickyOffset);
-
-document.querySelectorAll('.page-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById('page-' + tab.dataset.page).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  });
-});
-
-// ---------------- TOOLS OF THE TRADE ----------------
-const toolStages = [
-  {
-    stage: 'Idea',
-    when: 'Before any code exists',
-    tools: [
-      { cat: 'Talking to customers', name: 'Call transcripts & survey data', desc: "Spreadsheets and dashboards showing what customers are actually struggling with — the raw evidence behind the idea." },
-      { cat: 'Writing it up', name: 'Jira / Azure DevOps', desc: "Where the User Story itself lives — CLM-1842 is a real row in a tool exactly like this, with a status, an owner, and a history." }
-    ]
-  },
-  {
-    stage: 'Shaping / Elaboration',
-    when: 'Turning the idea into something buildable',
-    tools: [
-      { cat: 'Mapping the problem', name: 'Miro / Confluence', desc: "Digital whiteboards for sketching out the problem and writing the User Story so everyone reads the same version." },
-      { cat: 'Writing it precisely', name: 'Jira / Azure DevOps', desc: "Same tool as before — this is where the User Story gets its acceptance criteria, the exact conditions for \"done.\"" }
-    ]
-  },
-  {
-    stage: 'Design',
-    when: 'Before a single button is built',
-    tools: [
-      { cat: 'Screen design', name: 'Figma', desc: "Where the wireframe from the previous page actually gets drawn — every screen, button, and error state, clickable before it's real." },
-      { cat: 'Design rules', name: 'Design system library', desc: "A shared set of buttons, colours, and fonts so the photo-upload screen matches every other screen in the app." },
-      { cat: 'Quick feedback', name: 'Loom / screen recording', desc: "A 2-minute video walking through a new design, sent for feedback instead of booking a meeting." }
-    ]
-  },
-  {
-    stage: 'Development',
-    when: 'Where the code gets written',
-    tools: [
-      { cat: 'Writing code', name: 'VS Code + GitHub Copilot', desc: "The editor engineers write in — Copilot suggests code as they type, like predictive text but for programming." },
-      { cat: 'Storing code', name: 'GitHub / GitLab', desc: "Every version of the code, ever. The pull request from the journey page happens right here." },
-      { cat: 'Talking to the team', name: 'Slack / Microsoft Teams', desc: "Where the reviewer actually asked \"what happens on a bad connection?\" — most real decisions happen in chat, not meetings." },
-      { cat: 'Running it', name: 'Cloud platform (AWS / Azure)', desc: "Rented computers that actually run the app — nobody at most companies owns the physical servers anymore." }
-    ]
-  },
-  {
-    stage: 'Testing',
-    when: 'Trying to break it on purpose, in four different ways',
-    tools: [
-      { cat: 'Test automation', name: 'Playwright', desc: "Writes the upload journey once as code, then replays it automatically on every single code change — no human re-clicking through it each time." },
-      { cat: 'Security · SAST', name: 'Snyk', desc: "Static Application Security Testing — scans the source code itself for known vulnerabilities, like an outdated library with a public security flaw." },
-      { cat: 'Security · DAST', name: 'Invicti', desc: "Dynamic Application Security Testing — attacks the live running app the way a hacker would, trying to break in from the outside." },
-      { cat: 'Performance testing', name: 'JMeter / Azure Load Testing', desc: "Simulates thousands of people uploading photos at the exact same time, to check the system doesn't slow down or crash under real demand." }
-    ]
-  },
-  {
-    stage: 'Deployment',
-    when: 'Going live, carefully',
-    tools: [
-      { cat: 'Shipping it', name: 'CI/CD pipeline', desc: "An automated conveyor belt that takes finished, tested code and safely puts it live, the same way every time." },
-      { cat: 'Watching it', name: 'Datadog / monitoring dashboard', desc: "Live graphs showing if anything breaks the second it reaches real customers." },
-      { cat: 'Rolling out slowly', name: 'Feature flags', desc: "A switch that turns the new feature on for 5% of customers first, before flipping it on for everyone." }
-    ]
-  },
-  {
-    stage: 'Support',
-    when: 'After it ships — the loop closes',
-    tools: [
-      { cat: 'Spotting problems', name: 'Datadog / monitoring dashboard', desc: "Same dashboard as deployment — now it's used to catch anything odd in the days and weeks after release." },
-      { cat: 'Logging issues', name: 'Jira / Azure DevOps', desc: "New bugs reported after release go back into the same kind of board this whole journey started on." },
-      { cat: 'Tracking impact', name: 'Analytics dashboard', desc: "Shows whether the feature actually achieved what the original Idea stage hoped for — fewer calls, faster claims, happier customers." }
-    ]
-  }
-];
-
-const toolStagesEl = document.getElementById('toolStages');
-toolStagesEl.innerHTML = toolStages.map((block, i) => `
-  <div class="tool-stage-block">
-    <div class="tool-stage-head">
-      <span class="num">0${i+1}</span>
-      <h3>${block.stage}</h3>
-      <span class="when">${block.when}</span>
-    </div>
-    <div class="tool-grid">
-      ${block.tools.map(t => `
-        <div class="tool-card">
-          <span class="cat">${t.cat}</span>
-          <h4>${t.name}</h4>
-          <p>${t.desc}</p>
-        </div>
-      `).join('')}
-    </div>
-  </div>
-`).join('');
-
-// ---------------- WHAT'S CHANGING ----------------
-const trends = [
-  {
-    color: '#E8A33D',
-    title: 'AI writes the first draft of the code',
-    was: 'Engineers typed every line by hand',
-    now: 'AI suggests whole chunks as you type, or builds a first version from a plain-English request',
-    why: "<b>Why it matters:</b> the value has shifted from typing code quickly to deciding <i>what</i> to build and checking the AI's work carefully. Knowing how something works still matters more than ever — you just spend less time on the typing."
-  },
-  {
-    color: '#2E8B7A',
-    title: "You don't need to be a coder to build something",
-    was: 'Building software always meant writing code',
-    now: "Low-code and no-code tools let people drag, drop, and configure a working app or automation without writing code",
-    why: "<b>Why it matters:</b> more roles now build things directly — a business analyst might build a small automation themselves rather than waiting for an engineer."
-  },
-  {
-    color: '#D65A4A',
-    title: 'Nobody owns the computers anymore',
-    was: 'Companies bought and looked after their own physical servers',
-    now: 'Almost everything runs on rented cloud computing — pay for what you use, scale up or down in minutes',
-    why: "<b>Why it matters:</b> a brand-new idea can go live in days, not months, because nobody's waiting for new hardware to arrive and be installed."
-  },
-  {
-    color: '#8B97B5',
-    title: 'The team is rarely all in one building',
-    was: 'Teams sat together, planning happened around one whiteboard',
-    now: 'Teams are spread across cities, sometimes countries — coordinated through shared boards, chat, and video calls',
-    why: "<b>Why it matters:</b> writing clearly matters as much as talking well, since a lot of decisions happen in writing, in tools like the ones on the previous page, not face to face."
-  }
-];
-
-const trendGridEl = document.getElementById('trendGrid');
-trendGridEl.innerHTML = trends.map(t => `
-  <div class="trend-card">
-    <div class="trend-icon"><span class="swatch" style="background:${t.color}"></span> Then → Now</div>
-    <h3>${t.title}</h3>
-    <div class="trend-shift">
-      <span class="was">${t.was}</span>
-      <span class="arrow">→</span>
-      <span class="now">${t.now}</span>
-    </div>
-    <div class="trend-why">${t.why}</div>
-  </div>
-`).join('');
 </script>
 
 </body>
