@@ -254,6 +254,16 @@
   .ticket-state .k{ color: var(--slate-light); }
   .ticket-state .v{ color: var(--parchment); text-align: right; }
   .ticket-state .v.status{ color: var(--amber); font-weight: 600; }
+  .ticket-state .sprint-note{
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--slate-light);
+    margin: 10px 0 0;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+  }
+  .ticket-state .sprint-note b{ color: var(--amber); }
 
   .grid-two{
     display:grid;
@@ -784,6 +794,197 @@
     width: 10px; height: 10px; border-radius: 50%;
   }
 
+  /* ---------- FAMOUS FAILS ---------- */
+  .famous-fails-section{ padding: 20px 0 60px; }
+  .ff-head{ margin-bottom: 26px; }
+  .ff-head h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.9rem;
+    margin: 10px 0 10px;
+  }
+  .ff-head p{
+    color: var(--slate-light);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0;
+  }
+  .ff-grid{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .ff-card{
+    background: var(--parchment);
+    color: var(--ink-deep);
+    border-radius: 16px;
+    padding: 26px 28px;
+  }
+  .ff-meta{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .ff-year{
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .ff-cost{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    background: var(--coral);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .ff-card h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 0 0 12px;
+  }
+  .ff-card .ff-story{
+    font-size: 0.94rem;
+    line-height: 1.6;
+    color: #3A3A3A;
+    margin: 0 0 14px;
+  }
+  .ff-lesson{
+    background: rgba(46,139,122,0.1);
+    border-left: 3px solid var(--teal);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 0 0 14px;
+  }
+  .ff-lesson b{ color: var(--teal); }
+  .ff-card .ff-source{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--ink-deep);
+    background: rgba(22,33,62,0.08);
+    padding: 5px 11px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .ff-card .ff-source:hover{ background: rgba(22,33,62,0.16); }
+
+  /* ---------- DAY IN THE LIFE ---------- */
+  .dayinlife-grid{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-bottom: 60px;
+  }
+  .dil-card{
+    background: var(--parchment);
+    color: var(--ink-deep);
+    border-radius: 16px;
+    padding: 26px 28px;
+  }
+  .dil-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .dil-head h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    margin: 0;
+  }
+  .dil-head .dil-tagline{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--slate);
+    margin-top: 4px;
+    display: block;
+  }
+  .dil-quote{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: #3A3A3A;
+    border-left: 3px solid var(--amber);
+    padding-left: 16px;
+    margin: 0 0 18px;
+  }
+  .dil-grid-bottom{
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 22px;
+  }
+  @media (max-width: 700px){
+    .dil-grid-bottom{ grid-template-columns: 1fr; }
+  }
+  .dil-section h5{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--slate);
+    margin: 0 0 10px;
+  }
+  .dil-salary-bar{
+    position: relative;
+    height: 8px;
+    background: rgba(22,33,62,0.1);
+    border-radius: 6px;
+    margin: 10px 0 8px;
+  }
+  .dil-salary-fill{
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    background: linear-gradient(90deg, var(--amber), var(--teal));
+    border-radius: 6px;
+  }
+  .dil-salary-labels{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--slate);
+  }
+  .dil-salary-note{
+    font-size: 0.8rem;
+    color: var(--slate);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  .dil-routes{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .dil-routes li{
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #3A3A3A;
+    padding-left: 18px;
+    position: relative;
+  }
+  .dil-routes li::before{
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    font-weight: 700;
+  }
+
   /* ---------- TRENDS PAGE ---------- */
   .trend-grid{
     display: grid;
@@ -989,49 +1190,279 @@
   }
   .quiz-option.selected .opt-radio{ background: var(--amber); border-color: var(--amber); }
 
-  /* match game */
-  .match-columns{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  @media (max-width: 600px){
-    .match-columns{ grid-template-columns: 1fr; }
-  }
-  .match-col h4{
+  /* spot the bug */
+  .spotbug-round{ display: none; }
+  .spotbug-round.active{ display: block; }
+  .spotbug-label{
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     color: var(--slate-light);
-    margin: 0 0 10px;
+    margin-bottom: 10px;
   }
-  .match-item{
+  .spotbug-snippet{
     background: var(--parchment);
     color: var(--ink-deep);
+    border-radius: 12px;
+    padding: 20px 22px;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
-    font-weight: 600;
-    padding: 11px 14px;
-    border-radius: 9px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border-color 0.15s, opacity 0.2s;
+    line-height: 1.9;
   }
-  .match-item:hover{ border-color: var(--amber); }
-  .match-item.selected{ border-color: var(--amber); }
-  .match-item.matched-correct{ opacity: 0.45; border-color: var(--teal); cursor: default; }
-  .match-item.flash-wrong{ border-color: var(--coral); }
+  .spotbug-snippet.prose{ font-family: 'Inter', sans-serif; font-size: 0.92rem; line-height: 1.7; }
+  .sb-part{
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 1px 3px;
+    transition: background 0.15s;
+  }
+  .sb-part:hover{ background: rgba(232,163,61,0.25); }
+  .sb-part.found-correct{ background: var(--teal); color: #fff; }
+  .sb-part.found-wrong{ background: var(--coral); color: #fff; }
+  .spotbug-explain{
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--slate-light);
+    display: none;
+  }
+  .spotbug-explain.shown{ display: block; }
+  .spotbug-explain b{ color: var(--amber); }
+  .spotbug-nav{
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+  }
 
+  /* guess the role */
+  .gr-round{ display: none; }
+  .gr-round.active{ display: block; }
+  .gr-scene{
+    background: var(--parchment);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+  }
+  .gr-scene svg{ max-width: 100%; height: auto; }
+  .gr-clues{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--slate-light);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .gr-options{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 560px){
+    .gr-options{ grid-template-columns: 1fr; }
+  }
+  .gr-option{
+    background: rgba(247,243,234,0.04);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    padding: 12px 14px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-align: center;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .gr-option:hover{ border-color: var(--line-strong); }
+  .gr-option.correct-answer{ border-color: var(--teal); background: rgba(46,139,122,0.12); }
+  .gr-option.wrong-answer{ border-color: var(--coral); background: rgba(214,90,74,0.12); }
+  .gr-explain{
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--slate-light);
+    display: none;
+  }
+  .gr-explain.shown{ display: block; }
+  .gr-explain b{ color: var(--amber); }
+  .gr-nav{ display: flex; gap: 10px; margin-top: 16px; }
+
+
+  /* ---------- CERTIFICATE BADGE & MODAL ---------- */
+  .cert-badge{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 200;
+    background: var(--ink-deep);
+    border: 1px solid var(--line-strong);
+    color: var(--slate-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    padding: 10px 16px;
+    border-radius: 30px;
+    cursor: default;
+    box-shadow: 0 8px 24px -8px rgba(0,0,0,0.5);
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+  }
+  .cert-badge.ready{
+    background: var(--amber);
+    color: var(--ink-deep);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .cert-badge.ready:hover{ transform: translateY(-2px); }
+  @media (max-width: 600px){
+    .cert-badge{ bottom: 14px; right: 14px; font-size: 11px; padding: 8px 14px; }
+  }
+
+  .cert-modal-overlay{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(14,21,48,0.85);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .cert-modal-overlay.shown{ display: flex; }
+  .cert-modal{
+    background: var(--parchment);
+    color: var(--ink-deep);
+    border-radius: 16px;
+    padding: 36px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+  }
+  .cert-modal-close{
+    position: absolute;
+    top: 16px; right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--ink-deep);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+  }
+  .cert-modal-close:hover{ background: rgba(22,33,62,0.08); }
+
+  .cert-name-input{
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    padding: 12px 14px;
+    border: 1px solid rgba(22,33,62,0.25);
+    border-radius: 9px;
+    margin: 14px 0 18px;
+    box-sizing: border-box;
+  }
+  .cert-generate-btn{
+    background: var(--ink);
+    color: var(--parchment);
+    border: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 12px 22px;
+    border-radius: 9px;
+    cursor: pointer;
+  }
+  .cert-generate-btn:hover{ background: var(--ink-deep); }
+
+  .certificate{
+    border: 3px double var(--ink);
+    border-radius: 8px;
+    padding: 40px 36px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .certificate .cert-eyebrow{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--slate);
+    margin-bottom: 18px;
+  }
+  .certificate h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0 0 6px;
+  }
+  .certificate .cert-name{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.7rem;
+    color: var(--amber);
+    margin: 18px 0;
+    border-bottom: 1px solid rgba(22,33,62,0.2);
+    display: inline-block;
+    padding: 0 20px 8px;
+  }
+  .certificate .cert-body-text{
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #3A3A3A;
+    max-width: 420px;
+    margin: 0 auto 20px;
+  }
+  .certificate .cert-date{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--slate);
+    margin-top: 20px;
+  }
+  .cert-print-btn{
+    margin-top: 20px;
+    background: var(--amber);
+    color: var(--ink-deep);
+    border: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 11px 20px;
+    border-radius: 9px;
+    cursor: pointer;
+  }
+  .cert-print-btn:hover{ background: #f0b15a; }
+
+  @media print{
+    .page-nav, .cert-badge, .cert-modal-close, .cert-name-input, .cert-generate-btn, .cert-print-btn{ display: none !important; }
+    .cert-modal-overlay{ position: static; background: none; display: block !important; }
+    .cert-modal{ box-shadow: none; max-height: none; max-width: 100%; }
+    body > *:not(.cert-modal-overlay){ display: none !important; }
+  }
 </style>
 </head>
 <body>
+
+<canvas id="confettiCanvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; display:none;"></canvas>
+
+<div class="cert-badge" id="certBadge">
+  <span id="certBadgeText">0 / 6 tabs explored</span>
+</div>
+
+<div class="cert-modal-overlay" id="certModalOverlay">
+  <div class="cert-modal">
+    <button class="cert-modal-close" id="certModalClose">✕</button>
+    <div id="certModalBody"></div>
+  </div>
+</div>
 
 <nav class="page-nav">
   <div class="page-nav-inner">
     <button class="page-tab active" data-page="journey">The User Story's Journey</button>
     <button class="page-tab" data-page="tools">Tools of the Trade</button>
     <button class="page-tab" data-page="evolution">Evolution</button>
+    <button class="page-tab" data-page="dayinlife">Day in the Life</button>
     <button class="page-tab" data-page="trends">What's Changing</button>
     <button class="page-tab" data-page="game">Test Yourself</button>
   </div>
@@ -1108,6 +1539,29 @@
   <div class="evo-timeline" id="evoTimeline"></div>
 </div>
 
+<section class="wrap famous-fails-section">
+  <div class="ff-head">
+    <span class="eyebrow"><span class="dot"></span> THREE EXPENSIVE LESSONS</span>
+    <h2>Famous fails.</h2>
+    <p>Software mistakes aren't usually dramatic explosions — they're small oversights that cascade. These three real, well-documented stories show why each stage on the Journey tab exists, and what happens when one gets skipped.</p>
+  </div>
+  <div class="ff-grid" id="famousFailsGrid"></div>
+</section>
+
+</div>
+
+<div class="page" id="page-dayinlife">
+
+<section class="page-hero wrap">
+  <div class="eyebrow"><span class="dot"></span> COULD THIS BE YOU?</div>
+  <h1>What does <em>Tuesday</em><br>actually look like?</h1>
+  <p>Every role on the journey tab, but from the inside — a real Tuesday, realistic UK pay ranges, and how people actually get into each one. No single path is "the" path.</p>
+</section>
+
+<div class="wrap">
+  <div class="dayinlife-grid" id="dayinlifeGrid"></div>
+</div>
+
 </div>
 
 <div class="page" id="page-trends">
@@ -1127,16 +1581,16 @@
 <div class="page" id="page-game">
 
 <section class="page-hero wrap">
-  <div class="eyebrow"><span class="dot"></span> THREE QUICK CHALLENGES</div>
+  <div class="eyebrow"><span class="dot"></span> FOUR QUICK CHALLENGES</div>
   <h1>See what<br><em>actually stuck</em>.</h1>
-  <p>Three short activities pulling from everything on the other tabs — no new facts, just a quick check on what landed.</p>
+  <p>Four short activities pulling from everything on the other tabs — no new facts, just a quick check on what landed.</p>
 </section>
 
 <div class="wrap">
 
   <div class="game-block" id="game-order">
     <div class="game-head">
-      <span class="game-num">Activity 1 of 3</span>
+      <span class="game-num">Activity 1 of 4</span>
       <h2>Put the stages in order</h2>
       <p>Drag the seven SDLC stages into the correct sequence, from idea to support.</p>
     </div>
@@ -1149,9 +1603,9 @@
 
   <div class="game-block" id="game-quiz">
     <div class="game-head">
-      <span class="game-num">Activity 2 of 3</span>
+      <span class="game-num">Activity 2 of 4</span>
       <h2>Quick quiz</h2>
-      <p>Six questions pulled from the Tools and Journey tabs. Pick one answer for each.</p>
+      <p>Ten questions pulled from every tab on this site. Pick one answer for each.</p>
     </div>
     <div id="quizContainer"></div>
     <div class="game-feedback" id="quizFeedback"></div>
@@ -1159,22 +1613,26 @@
     <button class="reset-btn" id="quizResetBtn">Reset</button>
   </div>
 
-  <div class="game-block" id="game-match">
+  <div class="game-block" id="game-spotbug">
     <div class="game-head">
-      <span class="game-num">Activity 3 of 3</span>
-      <h2>Match the milestone to its year</h2>
-      <p>From the Evolution tab — tap a milestone, then tap the year you think it belongs to.</p>
+      <span class="game-num">Activity 3 of 4</span>
+      <h2>Spot the bug</h2>
+      <p>Each of these is based on something real from earlier tabs — but one detail has been deliberately changed to be wrong. Click the part that's broken.</p>
     </div>
-    <div class="match-columns">
-      <div class="match-col" id="matchMilestones">
-        <h4>Milestone</h4>
-      </div>
-      <div class="match-col" id="matchYears">
-        <h4>Year</h4>
-      </div>
+    <div id="spotbugContainer"></div>
+    <div class="game-feedback" id="spotbugFeedback">Round 1 of 3 — click the part you think is wrong.</div>
+    <button class="reset-btn" id="spotbugResetBtn">Reset</button>
+  </div>
+
+  <div class="game-block" id="game-guessrole">
+    <div class="game-head">
+      <span class="game-num">Activity 4 of 4</span>
+      <h2>Guess the role</h2>
+      <p>A quick illustration of someone's screen and desk — based on the clues, which role does it belong to?</p>
     </div>
-    <div class="game-feedback" id="matchFeedback">Tap a milestone on the left, then its year on the right.</div>
-    <button class="reset-btn" id="matchResetBtn">Reset</button>
+    <div id="guessroleContainer"></div>
+    <div class="game-feedback" id="guessroleFeedback">Round 1 of 5 — pick a role based on the clues.</div>
+    <button class="reset-btn" id="guessroleResetBtn">Reset</button>
   </div>
 
 </div>
@@ -1279,7 +1737,7 @@ const stages = [
     responsibilities: {
       title: 'Who does what',
       items: [
-        '<b>QA Engineer</b> runs functional test cases, plus automated checks that re-run this every time the code changes.',
+        '<b>QA (Quality Assurance) Engineer</b> runs functional test cases, plus automated checks that re-run this every time the code changes.',
         '<b>Security Engineer</b> runs automated scans that check the code itself and the live app for weaknesses an attacker could exploit.',
         '<b>Performance Engineer</b> simulates thousands of customers uploading photos at once, to check the system doesn\'t fall over.',
         '<b>Software Engineer</b> fixes whatever fails and resubmits for retest.'
@@ -1287,10 +1745,10 @@ const stages = [
     },
     artifactLabel: 'Test results — four kinds of testing',
     artifact: `<ul class="checklist">
-      <li><span class="box pass"></span> <b>Functional</b> (Playwright) — automated test re-runs all 14 upload scenarios on every code change, in under 3 minutes</li>
-      <li><span class="box fail"></span> <b>Security · SAST</b> (Snyk) — scan of the code itself flags one outdated image-processing library with a known vulnerability</li>
-      <li><span class="box pass"></span> <b>Security · DAST</b> (Invicti) — scan of the live running app finds no way to bypass the file-type check</li>
-      <li><span class="box pass"></span> <b>Performance</b> (JMeter / Azure Load Testing) — 5,000 simulated uploads at once, page stays under 2 second response time</li>
+      <li><span class="box pass"></span> <b>Functional</b> (Tools used: Playwright) — automated test re-runs all 14 upload scenarios on every code change, in under 3 minutes</li>
+      <li><span class="box fail"></span> <b>Security · SAST</b> (Tools used: Snyk) — scan of the code itself flags one outdated image-processing library with a known vulnerability</li>
+      <li><span class="box pass"></span> <b>Security · DAST</b> (Tools used: Invicti) — scan of the live running app finds no way to bypass the file-type check</li>
+      <li><span class="box pass"></span> <b>Performance</b> (Tools used: JMeter / Azure Load Testing) — 5,000 simulated uploads at once, page stays under 2 second response time</li>
     </ul>`
   },
   {
@@ -1378,6 +1836,7 @@ function renderStage(){
         <div class="row"><span class="k">Status</span><span class="v status">${s.status}</span></div>
         <div class="row"><span class="k">Owner</span><span class="v">${s.assignee}</span></div>
         <div class="row"><span class="k">Sprint</span><span class="v">${s.sprint}</span></div>
+        <p class="sprint-note">A <b>sprint</b> is a short, fixed block of time — usually 1–2 weeks — that a team commits to finishing a set amount of work in, then reviews and resets for the next one.</p>
       </div>
     </div>
 
@@ -1531,8 +1990,83 @@ document.querySelectorAll('.page-tab').forEach(tab => {
     tab.classList.add('active');
     document.getElementById('page-' + tab.dataset.page).classList.add('active');
     window.scrollTo({ top: 0, behavior: 'instant' });
+    trackTabVisit(tab.dataset.page);
   });
 });
+
+// ---------------- CERTIFICATE OF COMPLETION ----------------
+const allTabIds = Array.from(document.querySelectorAll('.page-tab')).map(t => t.dataset.page);
+const visitedTabs = new Set(['journey']); // journey tab is active by default on load
+
+function updateCertBadge(){
+  const badge = document.getElementById('certBadge');
+  const text = document.getElementById('certBadgeText');
+  const count = visitedTabs.size;
+  const total = allTabIds.length;
+  if (count >= total) {
+    badge.classList.add('ready');
+    text.textContent = '🎓 All tabs explored — get your certificate';
+  } else {
+    badge.classList.remove('ready');
+    text.textContent = `${count} / ${total} tabs explored`;
+  }
+}
+
+function trackTabVisit(pageId){
+  visitedTabs.add(pageId);
+  updateCertBadge();
+}
+
+document.getElementById('certBadge').addEventListener('click', () => {
+  if (visitedTabs.size < allTabIds.length) return;
+  openCertModal();
+});
+
+function openCertModal(){
+  const overlay = document.getElementById('certModalOverlay');
+  const body = document.getElementById('certModalBody');
+  body.innerHTML = `
+    <h3 style="font-family:'Fraunces', serif; font-size:1.4rem; margin:0 0 6px;">Nice work — you've explored every tab.</h3>
+    <p style="font-size:0.9rem; color:#5C6B8A; margin:0 0 4px;">Enter a name and generate a certificate you can print or save as a PDF.</p>
+    <input type="text" class="cert-name-input" id="certNameInput" placeholder="Enter your name" maxlength="60">
+    <button class="cert-generate-btn" id="certGenerateBtn">Generate certificate</button>
+    <div id="certOutput"></div>
+  `;
+  overlay.classList.add('shown');
+
+  document.getElementById('certGenerateBtn').addEventListener('click', () => {
+    const name = document.getElementById('certNameInput').value.trim() || 'Work Experience Student';
+    const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    document.getElementById('certOutput').innerHTML = `
+      <div class="certificate">
+        <div class="cert-eyebrow">Certificate of Completion</div>
+        <h2>The Life of a User Story</h2>
+        <div class="cert-name">${escapeHtml(name)}</div>
+        <p class="cert-body-text">has completed a work experience walkthrough of the software development lifecycle — covering the journey, tools, evolution, day-in-the-life roles, and a set of hands-on challenges in the world of software delivery.</p>
+        <div class="cert-date">${today}</div>
+      </div>
+      <button class="cert-print-btn" id="certPrintBtn">Print / Save as PDF</button>
+    `;
+    document.getElementById('certPrintBtn').addEventListener('click', () => window.print());
+  });
+}
+
+function escapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+document.getElementById('certModalClose').addEventListener('click', () => {
+  document.getElementById('certModalOverlay').classList.remove('shown');
+});
+document.getElementById('certModalOverlay').addEventListener('click', (e) => {
+  if (e.target.id === 'certModalOverlay') {
+    document.getElementById('certModalOverlay').classList.remove('shown');
+  }
+});
+
+updateCertBadge();
 
 // ---------------- TOOLS OF THE TRADE ----------------
 const toolStages = [
@@ -1658,7 +2192,7 @@ const evolution = [
     tag: 'process',
     title: 'The Agile Manifesto',
     blurb: "17 software practitioners meet at a ski resort in Utah and publish four short values that reshape how software gets built: working software over heavy documentation, responding to change over rigidly following a plan.",
-    detail: "This is the direct ancestor of the sprints, backlogs, and stand-ups used throughout the Journey tab of this site.",
+    detail: "This is the direct ancestor of the sprints (short, fixed work cycles, usually 1–2 weeks), backlogs, and stand-ups used throughout the Journey tab of this site.",
     sourceLabel: 'agilemanifesto.org — official site',
     sourceUrl: 'https://agilemanifesto.org/'
   },
@@ -1786,6 +2320,184 @@ evoTimelineEl.innerHTML = `
     </div>
   </div>
 `).join('');
+
+// ---------------- FAMOUS FAILS ----------------
+const famousFails = [
+  {
+    year: '1999',
+    cost: '$125 million lost',
+    title: 'The Mars probe lost to a units mismatch',
+    story: "NASA's Mars Climate Orbiter was meant to settle into orbit around Mars after a 9-month journey. One team's software calculated thruster firings in metric units (newtons); the navigation software expected imperial units (pounds-force). Nobody caught the mismatch before launch. The orbiter came in far too low, hit Mars' atmosphere, and was destroyed.",
+    lesson: "Connects to: <b>Definition</b> and <b>Testing</b>. This is exactly why a User Story's acceptance criteria need to be precise and unambiguous, and why integration testing checks that different parts of a system actually agree on the basics before they're trusted together.",
+    sourceLabel: 'NASA JPL — Mars Climate Orbiter Mishap Investigation',
+    sourceUrl: 'https://everydayastronaut.com/mars-climate-orbiter/'
+  },
+  {
+    year: '1999/2000',
+    cost: '$300–600 billion spent fixing it',
+    title: 'The whole industry feared the year 2000',
+    story: "For decades, programmers had saved memory by storing years as two digits — 1985 became \"85\". As the year 2000 approached, nobody knew for certain whether computers would read \"00\" as 1900 instead. The fix took a global, multi-year effort across banks, governments, and utilities to find and rewrite the old code before the deadline.",
+    lesson: "Connects to: <b>Support</b> and long-term thinking. Old code doesn't disappear — it keeps running for decades, often outliving the people who wrote it. Today's quick decisions become tomorrow's maintenance problem.",
+    sourceLabel: 'Wikipedia: Year 2000 problem',
+    sourceUrl: 'https://en.wikipedia.org/wiki/Year_2000_problem'
+  },
+  {
+    year: '2012',
+    cost: '$440 million lost in 45 minutes',
+    title: 'A trading firm nearly collapsed overnight',
+    story: "Knight Capital deployed new trading software to 8 servers — but the update only reached 7 of them. The 8th server still had old, dormant code from 2003 quietly sitting in it. That old code reactivated by mistake and started firing off real trades automatically. In 45 minutes, before anyone could stop it, the company had made millions of unintended trades and lost $440 million — nearly enough to bankrupt a 17-year-old company.",
+    lesson: "Connects to: <b>Deployment</b>. This is precisely why feature flags and gradual rollouts exist — releasing to a small slice of users first, with an instant way to undo it, instead of flipping every server on at once and hoping it goes well.",
+    sourceLabel: 'Wikipedia: Knight Capital Group',
+    sourceUrl: 'https://en.wikipedia.org/wiki/Knight_Capital_Group'
+  }
+];
+
+const ffGridEl = document.getElementById('famousFailsGrid');
+ffGridEl.innerHTML = famousFails.map(f => `
+  <div class="ff-card">
+    <div class="ff-meta">
+      <span class="ff-year">${f.year}</span>
+      <span class="ff-cost">${f.cost}</span>
+    </div>
+    <h3>${f.title}</h3>
+    <p class="ff-story">${f.story}</p>
+    <div class="ff-lesson">${f.lesson}</div>
+    <a href="${f.sourceUrl}" target="_blank" rel="noopener noreferrer" class="ff-source">${f.sourceLabel} →</a>
+  </div>
+`).join('');
+
+// ---------------- DAY IN THE LIFE ----------------
+const dayInLife = [
+  {
+    role: 'Product Owner',
+    tagline: 'Decides what gets built, and why',
+    quote: "\"Tuesday starts with the call-centre data from the weekend — three customers asked the same question about claim photos again. By lunchtime I've sketched the User Story and I'm in a review arguing, kindly, about what 'done' actually means for this feature.\"",
+    salaryMin: 32000, salaryMax: 95000,
+    salaryNote: "UK-wide range, junior Product Owner / Analyst through to senior Product Manager.",
+    routes: [
+      "University degree — any subject works, though business, computing, or psychology are common choices",
+      "Apprenticeship — fewer dedicated schemes exist for this role specifically, but Business Analyst or Digital & Technology Solutions apprenticeships often lead here",
+      "Internal move — a common route is starting in Support, QA, or Business Analysis and moving across once you understand the product well"
+    ]
+  },
+  {
+    role: 'Business Analyst',
+    tagline: 'Translates the problem into precise rules',
+    quote: "\"This morning was a workshop with the claims team working out exactly what counts as 'evidence' for a photo upload. This afternoon I'm writing it up so nobody on the build team has to guess.\"",
+    salaryMin: 28000, salaryMax: 70000,
+    salaryNote: "UK-wide range, junior to senior Business Analyst.",
+    routes: [
+      "University degree — business, finance, or computing-related degrees are common, though not always required",
+      "Apprenticeship — a Business Analyst degree apprenticeship combines paid work with a university qualification",
+      "Career move — many BAs move in from finance, operations, or insurance-specific roles, where domain knowledge counts for a lot"
+    ]
+  },
+  {
+    role: 'UX / UI Designer',
+    tagline: 'Decides what the customer actually sees',
+    quote: "\"I spent the morning watching a recording of someone trying to upload a claim photo on a cracked phone screen, in bright sunlight. The afternoon was redesigning the button so it's still tappable when none of that goes well.\"",
+    salaryMin: 26000, salaryMax: 68000,
+    salaryNote: "UK-wide range, junior UX/UI Designer to senior Designer.",
+    routes: [
+      "University degree — graphic design, digital media, or product design degrees give a strong design foundation",
+      "Apprenticeship or Level 3 course — UX/UI-focused apprenticeships are a growing direct route into the field",
+      "Portfolio-led routes — many designers build a portfolio through self-study and online courses, since employers often weigh real design work alongside qualifications"
+    ]
+  },
+  {
+    role: 'Frontend Engineer',
+    tagline: 'Builds what you tap and see',
+    quote: "\"Most of today is making the upload button behave properly on a slow connection — what happens if it times out halfway? I probably rewrote that one screen four times before it felt right.\"",
+    salaryMin: 28000, salaryMax: 90000,
+    salaryNote: "UK-wide range, junior Frontend Engineer to senior / lead.",
+    routes: [
+      "University degree — a Computer Science or related degree, often with a placement year, is the traditional route",
+      "Apprenticeship — a Level 4 Software Developer apprenticeship needs GCSE 4/C+ in English & Maths and combines paid work with study",
+      "Bootcamp or self-taught — an intensive coding bootcamp (typically 3–6 months), followed by a junior role, is a genuine and increasingly common route in"
+    ]
+  },
+  {
+    role: 'Backend Engineer',
+    tagline: 'Builds the parts customers never see',
+    quote: "\"Today's problem: where does a 10MB photo actually go, safely, the second someone uploads it? I spent two hours on a bug that turned out to be one missing character in a config file.\"",
+    salaryMin: 30000, salaryMax: 100000,
+    salaryNote: "UK-wide range, junior Backend Engineer to senior / principal.",
+    routes: [
+      "University degree — Computer Science, Software Engineering, or Maths degrees are common and well-respected routes",
+      "Apprenticeship — the same Level 4 Software Developer apprenticeship as Frontend, often broadening into backend work over time",
+      "Self-taught and portfolio-led — personal projects and open-source contributions are a genuinely strong way to demonstrate skill alongside or instead of formal study"
+    ]
+  },
+  {
+    role: 'QA (Quality Assurance) Engineer',
+    tagline: 'Tries to break it before a customer does',
+    quote: "\"I spent the morning trying to make the upload fail in every way I could think of — wrong file type, huge file, terrible connection. Found one real bug before lunch. That's a good day.\"",
+    salaryMin: 26000, salaryMax: 65000,
+    salaryNote: "UK-wide range, junior QA Engineer to senior / lead QA.",
+    routes: [
+      "University degree — Computer Science or related degrees give a strong base, though not always essential for this role",
+      "Apprenticeship — Level 4 apprenticeship routes exist specifically for software testing",
+      "Career move — a natural move from customer support or operations roles, since you already know how things go wrong for real users"
+    ]
+  },
+  {
+    role: 'DevOps Engineer',
+    tagline: 'Keeps the lights on while everything ships',
+    quote: "\"Most of today was making sure a new release rolls out to 5% of customers safely, with a way to instantly undo it if anything looks wrong. The best DevOps days are quiet — quiet means nothing broke.\"",
+    salaryMin: 32000, salaryMax: 95000,
+    salaryNote: "UK-wide range, junior DevOps/Platform Engineer to senior.",
+    routes: [
+      "University degree — Computer Science or Software Engineering degrees provide a strong foundation for this role",
+      "Apprenticeship — usually reached via a Software Developer apprenticeship first, then specialising over time",
+      "Career progression — most people arrive here after a few years as a Backend or Software Engineer, often supported by cloud certifications like Azure or AWS"
+    ]
+  },
+  {
+    role: 'Support Engineer',
+    tagline: 'The first to know when something\'s actually wrong',
+    quote: "\"A customer reported the upload failing on an old phone browser this morning. By this afternoon I'd logged the Incident, helped get it fixed, and raised a Problem record so it can't quietly happen again.\"",
+    salaryMin: 24000, salaryMax: 58000,
+    salaryNote: "UK-wide range, junior Support/Service Desk to senior Support Engineer.",
+    routes: [
+      "University degree — useful but genuinely not required for most entry-level Support Engineer roles",
+      "Apprenticeship — IT Support or Service Desk apprenticeships are widely available and often hire straight from school",
+      "Direct entry plus certification — many companies hire with on-the-job training, often followed by an ITIL certification (a widely recognised IT service management qualification)"
+    ]
+  }
+];
+
+function formatK(n){ return '£' + Math.round(n/1000) + 'k'; }
+
+const dilGridEl = document.getElementById('dayinlifeGrid');
+const dilGlobalMin = 22000, dilGlobalMax = 105000;
+dilGridEl.innerHTML = dayInLife.map(r => {
+  const leftPct = ((r.salaryMin - dilGlobalMin) / (dilGlobalMax - dilGlobalMin)) * 100;
+  const widthPct = ((r.salaryMax - r.salaryMin) / (dilGlobalMax - dilGlobalMin)) * 100;
+  return `
+  <div class="dil-card">
+    <div class="dil-head">
+      <div>
+        <h3>${r.role}</h3>
+        <span class="dil-tagline">${r.tagline}</span>
+      </div>
+    </div>
+    <p class="dil-quote">${r.quote}</p>
+    <div class="dil-grid-bottom">
+      <div class="dil-section">
+        <h5>UK salary range (junior → senior)</h5>
+        <div class="dil-salary-bar">
+          <div class="dil-salary-fill" style="left:${leftPct}%; width:${widthPct}%;"></div>
+        </div>
+        <div class="dil-salary-labels"><span>${formatK(r.salaryMin)}</span><span>${formatK(r.salaryMax)}</span></div>
+        <p class="dil-salary-note">${r.salaryNote} Figures are indicative, gathered from public 2026 UK salary data — actual pay varies a lot by company, region, and experience.</p>
+      </div>
+      <div class="dil-section">
+        <h5>Ways in</h5>
+        <ul class="dil-routes">${r.routes.map(rt => `<li>${rt}</li>`).join('')}</ul>
+      </div>
+    </div>
+  </div>
+`;}).join('');
 
 // ---------------- WHAT'S CHANGING ----------------
 const trends = [
@@ -1976,6 +2688,46 @@ const quizQuestions = [
       "There's no meaningful difference"
     ],
     correct: 2
+  },
+  {
+    q: "What is a sprint?",
+    options: [
+      "A type of bug that's especially fast to fix",
+      "A short, fixed block of time (usually 1–2 weeks) a team commits to finishing work in",
+      "Another name for a User Story",
+      "The final stage before a feature goes live"
+    ],
+    correct: 1
+  },
+  {
+    q: "In the Knight Capital story, what actually caused the $440 million loss?",
+    options: [
+      "A hacker broke into the trading system",
+      "An update was deployed to 7 out of 8 servers, leaving old dormant code active on the 8th",
+      "The company ran out of money to pay its traders",
+      "A power cut shut down the trading floor"
+    ],
+    correct: 1
+  },
+  {
+    q: "Which of these is generally true about getting into a tech career in the UK?",
+    options: [
+      "A university degree is the only real way in",
+      "There are multiple genuine routes in — degree, apprenticeship, and self-taught/bootcamp paths are all used",
+      "You must already know how to code before applying for any junior role",
+      "Only Computer Science graduates can become engineers"
+    ],
+    correct: 1
+  },
+  {
+    q: "On the Evolution tab, what does \"shift left\" refer to in DevSecOps?",
+    options: [
+      "Moving servers to a different physical location",
+      "Switching from Windows to Mac computers",
+      "Moving a task (like security checks) earlier in the process, rather than leaving it until the end",
+      "A new programming language"
+    ],
+    correct: 2
   }
 ];
 
@@ -2035,83 +2787,376 @@ document.getElementById('quizCheckBtn').addEventListener('click', () => {
   } else if (correctCount === quizQuestions.length) {
     feedback.textContent = `✓ ${correctCount} out of ${quizQuestions.length} — perfect score!`;
     feedback.className = 'game-feedback good';
+    celebratePerfectScore();
   } else {
     feedback.textContent = `${correctCount} out of ${quizQuestions.length} correct — green is the right answer, red is what you picked.`;
     feedback.className = 'game-feedback bad';
   }
 });
 
+// ---------- Celebration: confetti + sound on perfect quiz score ----------
+function playCelebrationSound(){
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    const ctx = new AudioCtx();
+    const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6 — a simple rising arpeggio
+    notes.forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      const startTime = ctx.currentTime + i * 0.12;
+      gain.gain.setValueAtTime(0.0001, startTime);
+      gain.gain.exponentialRampToValueAtTime(0.18, startTime + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.35);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(startTime);
+      osc.stop(startTime + 0.4);
+    });
+  } catch (e) {
+    // Web Audio not available — fail silently, confetti still plays
+  }
+}
+
+function celebratePerfectScore(){
+  playCelebrationSound();
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.style.display = 'block';
+
+  const colors = ['#E8A33D', '#2E8B7A', '#D65A4A', '#8B97B5', '#F7F3EA'];
+  const pieces = [];
+  for (let i = 0; i < 140; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * canvas.height * 0.3,
+      size: 6 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      speedY: 2 + Math.random() * 3,
+      speedX: (Math.random() - 0.5) * 2,
+      rotation: Math.random() * 360,
+      rotationSpeed: (Math.random() - 0.5) * 10
+    });
+  }
+
+  let frame = 0;
+  const maxFrames = 220;
+  function animate(){
+    frame++;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.rotation += p.rotationSpeed;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation * Math.PI / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size * 0.6);
+      ctx.restore();
+    });
+    if (frame < maxFrames) {
+      requestAnimationFrame(animate);
+    } else {
+      canvas.style.display = 'none';
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+  animate();
+}
+
+
 document.getElementById('quizResetBtn').addEventListener('click', initQuiz);
 initQuiz();
 
-// ---------- Activity 3: Milestone → year match ----------
-const matchPairs = evolution.map((e, i) => ({ id: i, title: e.title, year: e.year }));
-let matchSelectedMilestone = null;
-let matchedCount = 0;
+// ---------- Activity 3: Spot the bug ----------
+const spotbugRounds = [
+  {
+    label: 'Round 1 of 3 — Acceptance criteria',
+    type: 'prose',
+    html: `<b>As a</b> customer submitting a claim<br><b>I want to</b> attach photos of the damage<br><b>So that</b> I don't have to call or post anything in<br><br><b>Acceptance criteria:</b><br>• Accepts JPEG/PNG up to <span class="sb-part" data-correct="true">10GB</span><br>• Max <span class="sb-part" data-correct="false">5 photos</span> per claim<br>• Photo is visible to the claims handler within <span class="sb-part" data-correct="false">1 minute</span>`,
+    explain: "The bug: <b>10GB</b> should be <b>10MB</b>. A 10-gigabyte photo limit would be enormous — most phone photos are a few megabytes. This is exactly the kind of typo that acceptance criteria are meant to catch before anyone builds the wrong thing."
+  },
+  {
+    label: 'Round 2 of 3 — Test results',
+    type: 'prose',
+    html: `<ul class="checklist">
+      <li><span class="box pass"></span> <span class="sb-part" data-correct="false">Functional</span> (Tools used: Playwright) — automated test re-runs all 14 upload scenarios on every code change</li>
+      <li><span class="box pass"></span> <span class="sb-part" data-correct="true">Security · SAST</span> (Tools used: Snyk) — scan of the live running app finds no way to bypass the file-type check</li>
+      <li><span class="box pass"></span> <span class="sb-part" data-correct="false">Performance</span> (Tools used: JMeter) — 5,000 simulated uploads at once, page stays fast</li>
+    </ul>`,
+    explain: "The bug: <b>SAST</b> scans the source code <i>without running it</i> — checking the live running app is the definition of <b>DAST</b>, not SAST. Mixing these up matters: SAST and DAST catch genuinely different kinds of problems."
+  },
+  {
+    label: 'Round 3 of 3 — Deployment log',
+    type: 'snippet',
+    html: `Deploying User Story CLM-1842 to <span class="sb-part" data-correct="false">5%</span> of customers · 14 Nov, 09:02<br><br>✓ Build passed<br>✓ Security scan clear<br>✓ Health checks green<br><br>Auto-rollback armed: if error rate exceeds 1%, this release reverts <span class="sb-part" data-correct="true">manually after a 2-week review</span>`,
+    explain: "The bug: a feature flag's whole point is to undo a bad release <i>instantly and automatically</i> — waiting 2 weeks for a manual review defeats the purpose. If something's badly broken for customers, you want it reversed in seconds, not weeks."
+  }
+];
 
-function initMatchGame(){
-  matchSelectedMilestone = null;
-  matchedCount = 0;
-  const milestonesShuffled = shuffleArray(matchPairs);
-  const yearsShuffled = shuffleArray(matchPairs);
+let spotbugCurrentRound = 0;
+let spotbugSolvedRounds = new Set();
 
-  const mEl = document.getElementById('matchMilestones');
-  const yEl = document.getElementById('matchYears');
-  mEl.innerHTML = '<h4>Milestone</h4>' + milestonesShuffled.map(p => `<div class="match-item" data-id="${p.id}" data-side="milestone">${p.title}</div>`).join('');
-  yEl.innerHTML = '<h4>Year</h4>' + yearsShuffled.map(p => `<div class="match-item" data-id="${p.id}" data-side="year">${p.year}</div>`).join('');
+function initSpotBug(){
+  spotbugCurrentRound = 0;
+  spotbugSolvedRounds = new Set();
+  const container = document.getElementById('spotbugContainer');
+  container.innerHTML = spotbugRounds.map((r, i) => `
+    <div class="spotbug-round ${i === 0 ? 'active' : ''}" data-round="${i}">
+      <div class="spotbug-label">${r.label}</div>
+      <div class="spotbug-snippet ${r.type === 'prose' ? 'prose' : ''}">${r.html}</div>
+      <div class="spotbug-explain" id="spotbugExplain${i}">${r.explain}</div>
+      <div class="spotbug-nav">
+        <button class="reset-btn spotbug-next" data-round="${i}" style="display:none;">
+          ${i < spotbugRounds.length - 1 ? 'Next round →' : 'Restart from round 1'}
+        </button>
+      </div>
+    </div>
+  `).join('');
 
-  document.getElementById('matchFeedback').textContent = 'Tap a milestone on the left, then its year on the right.';
-  document.getElementById('matchFeedback').className = 'game-feedback';
-
-  attachMatchEvents();
+  document.getElementById('spotbugFeedback').textContent = spotbugRounds[0].label + ' — click the part you think is wrong.';
+  document.getElementById('spotbugFeedback').className = 'game-feedback';
+  attachSpotBugEvents();
 }
 
-function attachMatchEvents(){
-  document.querySelectorAll('.match-item[data-side="milestone"]').forEach(item => {
-    item.addEventListener('click', () => {
-      if (item.classList.contains('matched-correct')) return;
-      document.querySelectorAll('.match-item[data-side="milestone"]').forEach(i => i.classList.remove('selected'));
-      item.classList.add('selected');
-      matchSelectedMilestone = item;
-      document.getElementById('matchFeedback').textContent = 'Now tap the year you think matches.';
-      document.getElementById('matchFeedback').className = 'game-feedback';
-    });
-  });
+function attachSpotBugEvents(){
+  document.querySelectorAll('.sb-part').forEach(part => {
+    part.addEventListener('click', () => {
+      const roundEl = part.closest('.spotbug-round');
+      const roundIdx = parseInt(roundEl.dataset.round);
+      if (spotbugSolvedRounds.has(roundIdx)) return; // round already solved, ignore further clicks
 
-  document.querySelectorAll('.match-item[data-side="year"]').forEach(item => {
-    item.addEventListener('click', () => {
-      if (item.classList.contains('matched-correct')) return;
-      if (!matchSelectedMilestone) {
-        document.getElementById('matchFeedback').textContent = 'Pick a milestone first, then its year.';
-        document.getElementById('matchFeedback').className = 'game-feedback';
-        return;
-      }
-      const feedback = document.getElementById('matchFeedback');
-      if (item.dataset.id === matchSelectedMilestone.dataset.id) {
-        matchSelectedMilestone.classList.remove('selected');
-        matchSelectedMilestone.classList.add('matched-correct');
-        item.classList.add('matched-correct');
-        matchSelectedMilestone = null;
-        matchedCount++;
-        if (matchedCount === matchPairs.length) {
-          feedback.textContent = `✓ All ${matchPairs.length} matched!`;
-          feedback.className = 'game-feedback good';
-        } else {
-          feedback.textContent = `Matched! ${matchedCount} of ${matchPairs.length} done.`;
-          feedback.className = 'game-feedback good';
-        }
+      const isCorrect = part.dataset.correct === 'true';
+      const feedback = document.getElementById('spotbugFeedback');
+
+      if (isCorrect) {
+        part.classList.add('found-correct');
+        roundEl.querySelectorAll('.sb-part').forEach(p => p.style.pointerEvents = 'none');
+        document.getElementById('spotbugExplain' + roundIdx).classList.add('shown');
+        roundEl.querySelector('.spotbug-next').style.display = 'inline-block';
+        spotbugSolvedRounds.add(roundIdx);
+        feedback.textContent = `✓ Found it! ${spotbugSolvedRounds.size} of ${spotbugRounds.length} rounds solved.`;
+        feedback.className = 'game-feedback good';
       } else {
-        item.classList.add('flash-wrong');
-        feedback.textContent = 'Not quite — try again.';
+        part.classList.add('found-wrong');
+        feedback.textContent = "Not quite that one — look again.";
         feedback.className = 'game-feedback bad';
-        setTimeout(() => item.classList.remove('flash-wrong'), 500);
+        setTimeout(() => part.classList.remove('found-wrong'), 500);
+      }
+    });
+  });
+
+  document.querySelectorAll('.spotbug-next').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const currentIdx = parseInt(btn.dataset.round);
+      const nextIdx = (currentIdx + 1) % spotbugRounds.length;
+      document.querySelectorAll('.spotbug-round').forEach(r => r.classList.remove('active'));
+      document.querySelector(`.spotbug-round[data-round="${nextIdx}"]`).classList.add('active');
+      const feedback = document.getElementById('spotbugFeedback');
+      if (nextIdx === 0 && spotbugSolvedRounds.size === spotbugRounds.length) {
+        feedback.textContent = `✓ All ${spotbugRounds.length} bugs found! Back to round 1 if you want another look.`;
+        feedback.className = 'game-feedback good';
+      } else {
+        feedback.textContent = spotbugRounds[nextIdx].label + (spotbugSolvedRounds.has(nextIdx) ? ' — already solved.' : ' — click the part you think is wrong.');
+        feedback.className = 'game-feedback';
       }
     });
   });
 }
 
-document.getElementById('matchResetBtn').addEventListener('click', initMatchGame);
-initMatchGame();
+document.getElementById('spotbugResetBtn').addEventListener('click', initSpotBug);
+initSpotBug();
+
+// ---------- Activity 4: Guess the role ----------
+// Each scene is a simple illustrated monitor + a couple of visual clues — drawn as basic shapes, not photos.
+const guessRoleRounds = [
+  {
+    clues: 'A whiteboard sketch, sticky notes, and a chat window full of questions',
+    correct: 'Product Owner',
+    options: ['Product Owner', 'Backend Engineer', 'QA Engineer', 'DevOps Engineer'],
+    explain: "<b>Product Owner.</b> Sticky notes and a whiteboard sketch are classic signs of someone shaping an idea into a clear User Story — lots of questions, not much code yet.",
+    svg: `<svg viewBox="0 0 280 200" width="280" height="200">
+      <rect x="20" y="20" width="240" height="140" rx="6" fill="#16213E"/>
+      <rect x="30" y="30" width="220" height="120" rx="3" fill="#F7F3EA"/>
+      <rect x="45" y="45" width="60" height="40" fill="#fff" stroke="#16213E" stroke-width="1.5"/>
+      <line x1="50" y1="55" x2="100" y2="55" stroke="#5C6B8A" stroke-width="2"/>
+      <line x1="50" y1="65" x2="90" y2="65" stroke="#5C6B8A" stroke-width="2"/>
+      <line x1="50" y1="75" x2="95" y2="75" stroke="#5C6B8A" stroke-width="2"/>
+      <rect x="115" y="48" width="28" height="28" fill="#E8A33D" transform="rotate(-4 129 62)"/>
+      <rect x="148" y="55" width="28" height="28" fill="#2E8B7A" transform="rotate(3 162 69)"/>
+      <rect x="45" y="100" width="160" height="35" rx="6" fill="#fff" stroke="#5C6B8A" stroke-width="1.5"/>
+      <circle cx="58" cy="112" r="4" fill="#2E8B7A"/>
+      <line x1="68" y1="112" x2="150" y2="112" stroke="#16213E" stroke-width="1.5"/>
+      <circle cx="58" cy="124" r="4" fill="#E8A33D"/>
+      <line x1="68" y1="124" x2="135" y2="124" stroke="#16213E" stroke-width="1.5"/>
+      <rect x="120" y="165" width="40" height="10" rx="2" fill="#5C6B8A"/>
+    </svg>`
+  },
+  {
+    clues: 'Code editor full of colourful text, a terminal window, and a tab open to a Q&A site',
+    correct: 'Backend Engineer',
+    options: ['UX/UI Designer', 'Backend Engineer', 'Business Analyst', 'Support Engineer'],
+    explain: "<b>Backend Engineer.</b> A code editor and an open terminal are the two things almost always on screen — that's where the server-side logic actually gets written and tested.",
+    svg: `<svg viewBox="0 0 280 200" width="280" height="200">
+      <rect x="20" y="20" width="240" height="140" rx="6" fill="#16213E"/>
+      <rect x="30" y="30" width="220" height="120" rx="3" fill="#0E1530"/>
+      <line x1="45" y1="48" x2="90" y2="48" stroke="#E8A33D" stroke-width="2"/>
+      <line x1="95" y1="48" x2="130" y2="48" stroke="#2E8B7A" stroke-width="2"/>
+      <line x1="45" y1="60" x2="75" y2="60" stroke="#D65A4A" stroke-width="2"/>
+      <line x1="80" y1="60" x2="150" y2="60" stroke="#8B97B5" stroke-width="2"/>
+      <line x1="55" y1="72" x2="110" y2="72" stroke="#F7F3EA" stroke-width="2"/>
+      <line x1="45" y1="84" x2="100" y2="84" stroke="#E8A33D" stroke-width="2"/>
+      <line x1="45" y1="96" x2="85" y2="96" stroke="#2E8B7A" stroke-width="2"/>
+      <rect x="165" y="45" width="70" height="60" rx="3" fill="#000"/>
+      <line x1="172" y1="55" x2="200" y2="55" stroke="#2E8B7A" stroke-width="1.5"/>
+      <line x1="172" y1="64" x2="220" y2="64" stroke="#2E8B7A" stroke-width="1.5"/>
+      <line x1="172" y1="73" x2="190" y2="73" stroke="#2E8B7A" stroke-width="1.5"/>
+      <rect x="172" y="82" width="6" height="10" fill="#2E8B7A"/>
+      <rect x="120" y="165" width="40" height="10" rx="2" fill="#5C6B8A"/>
+    </svg>`
+  },
+  {
+    clues: 'A screen split between a colourful clickable mockup and a notes panel about accessibility',
+    correct: 'UX/UI Designer',
+    options: ['UX/UI Designer', 'Frontend Engineer', 'QA Engineer', 'Product Owner'],
+    explain: "<b>UX/UI Designer.</b> Colourful screen mockups and notes about accessibility (like text size, contrast, or tap targets) are the signature of someone designing exactly what a customer will see and tap.",
+    svg: `<svg viewBox="0 0 280 200" width="280" height="200">
+      <rect x="20" y="20" width="240" height="140" rx="6" fill="#16213E"/>
+      <rect x="30" y="30" width="220" height="120" rx="3" fill="#F7F3EA"/>
+      <rect x="42" y="42" width="100" height="96" rx="8" fill="#fff" stroke="#5C6B8A" stroke-width="1.5"/>
+      <rect x="52" y="52" width="80" height="30" rx="6" fill="#E8A33D"/>
+      <rect x="52" y="90" width="80" height="14" rx="6" fill="#2E8B7A"/>
+      <rect x="52" y="110" width="50" height="14" rx="6" fill="#D65A4A"/>
+      <rect x="155" y="42" width="85" height="96" rx="4" fill="#fff" stroke="#5C6B8A" stroke-width="1.5"/>
+      <circle cx="167" cy="56" r="3" fill="#2E8B7A"/>
+      <line x1="176" y1="56" x2="225" y2="56" stroke="#16213E" stroke-width="1.5"/>
+      <circle cx="167" cy="70" r="3" fill="#2E8B7A"/>
+      <line x1="176" y1="70" x2="215" y2="70" stroke="#16213E" stroke-width="1.5"/>
+      <circle cx="167" cy="84" r="3" fill="#D65A4A"/>
+      <line x1="176" y1="84" x2="220" y2="84" stroke="#16213E" stroke-width="1.5"/>
+      <rect x="120" y="165" width="40" height="10" rx="2" fill="#5C6B8A"/>
+    </svg>`
+  },
+  {
+    clues: 'A checklist with red and green ticks, several browser windows open side by side',
+    correct: 'QA (Quality Assurance) Engineer',
+    options: ['QA (Quality Assurance) Engineer', 'Business Analyst', 'DevOps Engineer', 'Support Engineer'],
+    explain: "<b>QA Engineer.</b> A checklist of pass/fail results and several browser windows open at once (testing across different setups) are classic signs of someone trying to break something on purpose, methodically.",
+    svg: `<svg viewBox="0 0 280 200" width="280" height="200">
+      <rect x="20" y="20" width="240" height="140" rx="6" fill="#16213E"/>
+      <rect x="30" y="30" width="220" height="120" rx="3" fill="#F7F3EA"/>
+      <rect x="45" y="42" width="150" height="20" rx="3" fill="#fff" stroke="#2E8B7A" stroke-width="1.5"/>
+      <circle cx="56" cy="52" r="5" fill="#2E8B7A"/>
+      <line x1="68" y1="52" x2="160" y2="52" stroke="#16213E" stroke-width="1.5"/>
+      <rect x="45" y="66" width="150" height="20" rx="3" fill="#fff" stroke="#D65A4A" stroke-width="1.5"/>
+      <circle cx="56" cy="76" r="5" fill="#D65A4A"/>
+      <line x1="68" y1="76" x2="150" y2="76" stroke="#16213E" stroke-width="1.5"/>
+      <rect x="45" y="90" width="150" height="20" rx="3" fill="#fff" stroke="#2E8B7A" stroke-width="1.5"/>
+      <circle cx="56" cy="100" r="5" fill="#2E8B7A"/>
+      <line x1="68" y1="100" x2="170" y2="100" stroke="#16213E" stroke-width="1.5"/>
+      <rect x="205" y="42" width="35" height="48" rx="3" fill="#fff" stroke="#5C6B8A" stroke-width="1.5"/>
+      <rect x="205" y="96" width="35" height="48" rx="3" fill="#fff" stroke="#5C6B8A" stroke-width="1.5"/>
+      <rect x="120" y="165" width="40" height="10" rx="2" fill="#5C6B8A"/>
+    </svg>`
+  },
+  {
+    clues: 'A live graph dashboard, a percentage counter rolling upward, and a big red rollback button',
+    correct: 'DevOps Engineer',
+    options: ['DevOps Engineer', 'Support Engineer', 'Backend Engineer', 'Product Owner'],
+    explain: "<b>DevOps Engineer.</b> A live monitoring dashboard, a rollout percentage, and a rollback button are exactly the tools used to release something carefully and undo it fast if it goes wrong.",
+    svg: `<svg viewBox="0 0 280 200" width="280" height="200">
+      <rect x="20" y="20" width="240" height="140" rx="6" fill="#16213E"/>
+      <rect x="30" y="30" width="220" height="120" rx="3" fill="#0E1530"/>
+      <polyline points="45,110 70,95 95,100 120,75 145,85 170,55 195,65" fill="none" stroke="#2E8B7A" stroke-width="3"/>
+      <circle cx="195" cy="65" r="4" fill="#2E8B7A"/>
+      <rect x="45" y="120" width="150" height="10" rx="5" fill="#16213E"/>
+      <rect x="45" y="120" width="95" height="10" rx="5" fill="#E8A33D"/>
+      <circle cx="225" cy="100" r="18" fill="#D65A4A"/>
+      <rect x="217" y="96" width="16" height="8" fill="#fff"/>
+      <rect x="120" y="165" width="40" height="10" rx="2" fill="#5C6B8A"/>
+    </svg>`
+  }
+];
+
+let guessRoleCurrentRound = 0;
+let guessRoleSolvedRounds = new Set();
+
+function initGuessRole(){
+  guessRoleCurrentRound = 0;
+  guessRoleSolvedRounds = new Set();
+  const container = document.getElementById('guessroleContainer');
+  container.innerHTML = guessRoleRounds.map((r, i) => `
+    <div class="gr-round ${i === 0 ? 'active' : ''}" data-round="${i}">
+      <div class="gr-scene">${r.svg}</div>
+      <div class="gr-clues">${r.clues}</div>
+      <div class="gr-options">
+        ${r.options.map(opt => `<div class="gr-option" data-round="${i}" data-option="${opt}">${opt}</div>`).join('')}
+      </div>
+      <div class="gr-explain" id="grExplain${i}">${r.explain}</div>
+      <div class="gr-nav">
+        <button class="reset-btn gr-next" data-round="${i}" style="display:none;">
+          ${i < guessRoleRounds.length - 1 ? 'Next round →' : 'Restart from round 1'}
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('guessroleFeedback').textContent = `Round 1 of ${guessRoleRounds.length} — pick a role based on the clues.`;
+  document.getElementById('guessroleFeedback').className = 'game-feedback';
+  attachGuessRoleEvents();
+}
+
+function attachGuessRoleEvents(){
+  document.querySelectorAll('.gr-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const roundIdx = parseInt(opt.dataset.round);
+      if (guessRoleSolvedRounds.has(roundIdx)) return;
+
+      const round = guessRoleRounds[roundIdx];
+      const roundEl = opt.closest('.gr-round');
+      const feedback = document.getElementById('guessroleFeedback');
+
+      if (opt.dataset.option === round.correct) {
+        opt.classList.add('correct-answer');
+        roundEl.querySelectorAll('.gr-option').forEach(o => o.style.pointerEvents = 'none');
+        document.getElementById('grExplain' + roundIdx).classList.add('shown');
+        roundEl.querySelector('.gr-next').style.display = 'inline-block';
+        guessRoleSolvedRounds.add(roundIdx);
+        feedback.textContent = `✓ Correct! ${guessRoleSolvedRounds.size} of ${guessRoleRounds.length} rounds solved.`;
+        feedback.className = 'game-feedback good';
+      } else {
+        opt.classList.add('wrong-answer');
+        feedback.textContent = 'Not quite — look at the clues again.';
+        feedback.className = 'game-feedback bad';
+        setTimeout(() => opt.classList.remove('wrong-answer'), 500);
+      }
+    });
+  });
+
+  document.querySelectorAll('.gr-next').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const currentIdx = parseInt(btn.dataset.round);
+      const nextIdx = (currentIdx + 1) % guessRoleRounds.length;
+      document.querySelectorAll('.gr-round').forEach(r => r.classList.remove('active'));
+      document.querySelector(`.gr-round[data-round="${nextIdx}"]`).classList.add('active');
+      const feedback = document.getElementById('guessroleFeedback');
+      if (nextIdx === 0 && guessRoleSolvedRounds.size === guessRoleRounds.length) {
+        feedback.textContent = `✓ All ${guessRoleRounds.length} roles guessed! Back to round 1 if you want another look.`;
+        feedback.className = 'game-feedback good';
+      } else {
+        feedback.textContent = `Round ${nextIdx + 1} of ${guessRoleRounds.length}` + (guessRoleSolvedRounds.has(nextIdx) ? ' — already solved.' : ' — pick a role based on the clues.');
+        feedback.className = 'game-feedback';
+      }
+    });
+  });
+}
+
+document.getElementById('guessroleResetBtn').addEventListener('click', initGuessRole);
+initGuessRole();
 </script>
 
 </body>
