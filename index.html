@@ -133,7 +133,7 @@
     border-radius: 10px;
     padding: 18px 22px;
     display:inline-flex; align-items:center; gap:16px;
-    text-align:left; max-width: 640px;
+    text-align:left; max-width: 820px;
     box-shadow: 5px 6px 0 rgba(36,31,24,0.12);
     transform: rotate(-0.4deg);
   }
@@ -146,7 +146,7 @@
 
   .context-card{
     display:flex; align-items:center; gap:22px; text-align:left;
-    max-width: 640px; margin: 22px auto 0;
+    max-width: 820px; margin: 22px auto 0;
     background: var(--paper);
     border: 1.5px dashed var(--ink-soft);
     border-radius: 10px;
@@ -167,7 +167,7 @@
   }
 
   .glossary-strip{
-    max-width: 640px; margin: 16px auto 0; text-align:left;
+    max-width: 820px; margin: 16px auto 0; text-align:left;
     background: var(--kraft-dark);
     border: 1.5px solid var(--ink-soft);
     border-radius: 10px;
@@ -231,7 +231,7 @@
     border: 2px solid var(--line);
     border-radius: 3px;
     margin: 30px auto 0;
-    max-width: 940px;
+    max-width: 1100px;
     box-shadow: 7px 9px 0 rgba(36,31,24,0.12);
   }
   .panel-tape{
@@ -252,10 +252,15 @@
     width: 60px; height:60px; display:flex; align-items:center; justify-content:center;
     text-align:center; line-height:1.2; transform: rotate(8deg); flex-shrink:0; opacity:0.75;
   }
-  .panel-blurb{ font-size:0.95rem; line-height:1.55; color: var(--ink); padding: 14px 30px 0; max-width: 640px; }
+  .panel-intro{
+    display:flex; gap:24px; align-items:flex-start;
+    padding: 14px 30px 0;
+  }
+  .panel-blurb{ font-size:0.95rem; line-height:1.55; color: var(--ink); margin:0; flex: 1 1 60%; min-width: 0; }
 
   .ticket-state{
-    margin: 18px 30px 0;
+    flex: 0 1 320px;
+    min-width: 240px;
     background: var(--kraft);
     border: 1.5px dashed var(--ink-soft);
     border-radius: 7px;
@@ -263,11 +268,15 @@
     font-family:'JetBrains Mono', monospace;
     font-size: 12.5px;
   }
-  .ticket-state .row{ display:flex; justify-content:space-between; padding:2.5px 0; }
+  .ticket-state .row{ display:flex; justify-content:space-between; padding:2.5px 0; gap:12px; }
   .ticket-state .row:not(:last-child){ border-bottom: 1px dotted rgba(84,73,58,0.25); }
-  .ticket-state .k{ color: var(--ink-soft); }
-  .ticket-state .v{ font-weight:600; }
+  .ticket-state .k{ color: var(--ink-soft); flex-shrink:0; }
+  .ticket-state .v{ font-weight:600; text-align:right; }
   .ticket-state .v.status{ color: var(--coral); }
+  @media (max-width: 760px){
+    .panel-intro{ flex-direction:column; }
+    .ticket-state{ flex-basis:auto; width:100%; }
+  }
 
   .grid-two{ display:grid; grid-template-columns: 1fr 1fr; gap: 22px; padding: 22px 30px 30px; }
   @media (max-width: 760px){ .grid-two{ grid-template-columns: 1fr; } }
@@ -304,7 +313,7 @@
 
   /* ================= TRY IT / ROLE DRAG GAME ================= */
   .tryit{ padding: 56px 0 20px; }
-  .tryit-head{ max-width: 640px; margin: 0 auto 30px; text-align:center; }
+  .tryit-head{ max-width: 760px; margin: 0 auto 30px; text-align:center; }
   .tryit-head .stage-tag{
     font-family:'JetBrains Mono', monospace; font-size:11px; text-transform:uppercase;
     letter-spacing:0.05em; color: var(--coral); margin-bottom:8px; display:block;
@@ -462,7 +471,7 @@
   }
 
   .famous-fails-section{ padding: 50px 0 20px; }
-  .ff-head{ max-width:640px; margin:0 auto 30px; text-align:center; }
+  .ff-head{ max-width:760px; margin:0 auto 30px; text-align:center; }
   .ff-head h2{ font-family:'Caveat', cursive; font-size:2.2rem; margin:8px 0 10px; }
   .ff-head p{ font-size:0.92rem; color: var(--ink-soft); line-height:1.55; }
 
@@ -511,7 +520,7 @@
   .dil-salary-note{ font-size:0.76rem; color: var(--ink-soft); line-height:1.45; margin: 6px 0 0; }
 
   .dil-disclaimer{
-    max-width: 640px; margin: 0 auto 22px; text-align:center;
+    max-width: 760px; margin: 0 auto 22px; text-align:center;
     font-family:'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-soft); line-height:1.5;
   }
   .dil-routes{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
@@ -526,7 +535,7 @@
 
   /* ================= AI USE CASE CARD ================= */
   .ai-usecase-section{ padding: 50px 0 20px; }
-  .ai-usecase-head{ max-width:640px; margin:0 auto 26px; text-align:center; }
+  .ai-usecase-head{ max-width:760px; margin:0 auto 26px; text-align:center; }
   .ai-usecase-head h2{ font-family:'Caveat', cursive; font-size:2.2rem; margin:8px 0 10px; }
   .ai-usecase-head p{ font-size:0.92rem; color: var(--ink-soft); line-height:1.55; }
   .ai-usecase-card{
@@ -637,7 +646,8 @@
   .gr-round.active{ display:block; }
   .gr-scene{ background: var(--paper); border:2px solid var(--line); border-radius:8px; padding: 12px; display:flex; justify-content:center; margin-bottom:14px; }
   .gr-clues{ font-family:'Caveat', cursive; font-size:1.15rem; color: var(--ink-soft); margin-bottom:16px; }
-  .gr-options{ display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
+  .gr-options{ display:grid; grid-template-columns: repeat(2, 1fr); gap:10px; margin-bottom:14px; }
+  @media (max-width: 560px){ .gr-options{ grid-template-columns: 1fr; } }
   .gr-option{
     padding: 10px 14px; border:1.5px solid var(--ink-soft); border-radius:7px; cursor:pointer; font-size:0.86rem;
     background: var(--paper);
@@ -810,9 +820,6 @@
   <button class="reset-btn" id="resetBoard">Reset board</button>
 </section>
 
-<footer class="site-footer wrap">
-  Built for a one-to-one work experience walkthrough · CLM-1842 is a made-up ticket, but the stages, roles, and rhythm are real.
-</footer>
 
 </div>
 
@@ -979,6 +986,10 @@
 
 </div>
 
+<footer class="site-footer wrap">
+  Built for a one-to-one work experience walkthrough · CLM-1842 is a made-up ticket, but the stages, roles, and rhythm are real · Designed and built with Claude (Anthropic) · idea, direction, and product calls by <a href="https://www.linkedin.com/in/sriprashanth-sanoor-ananthacharya-82a14353/" target="_blank" rel="noopener noreferrer">Sriprashanth</a>.
+</footer>
+
 <script>
 // ====================================================================
 // DATA — ported from the original journey/tools/evolution/etc content
@@ -1118,18 +1129,17 @@ function stageScene(type, accent){
   const a = accent;
   switch(type){
     case 'sticky': return `
-      <svg viewBox="0 0 200 160" fill="none">
-        <g transform="rotate(-4 100 80)">
-          <rect x="48" y="36" width="104" height="96" rx="3" fill="${a}" opacity="0.18" stroke="${a}" stroke-width="2"/>
-          <line x1="64" y1="64" x2="136" y2="64" stroke="${a}" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="64" y1="80" x2="124" y2="80" stroke="${a}" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-          <line x1="64" y1="96" x2="132" y2="96" stroke="${a}" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
-        </g>
-        <circle cx="156" cy="40" r="3" fill="${a}"/>
-        <circle cx="44" cy="128" r="2.5" fill="${a}" opacity="0.6"/>
+      <svg viewBox="0 0 200 160" fill="none" style="width:100%;height:100%;max-width:130px;max-height:110px;">
+        <path d="M100 36c-19 0-32 14-32 31 0 13 7 20 13 27 3 4 5 8 5 12h28c0-4 2-8 5-12 6-7 13-14 13-27 0-17-13-31-32-31z" stroke="${a}" stroke-width="2.2" fill="${a}" fill-opacity="0.12"/>
+        <line x1="86" y1="112" x2="114" y2="112" stroke="${a}" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="89" y1="120" x2="111" y2="120" stroke="${a}" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
+        <path d="M100 16v10M70 30l7 7M130 30l-7 7" stroke="${a}" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="100" cy="64" r="3" fill="${a}" opacity="0.6"/>
+        <circle cx="46" cy="50" r="2.5" fill="${a}" opacity="0.5"/>
+        <circle cx="154" cy="56" r="2" fill="${a}" opacity="0.4"/>
       </svg>`;
     case 'story': return `
-      <svg viewBox="0 0 200 160" fill="none">
+      <svg viewBox="0 0 200 160" fill="none" style="width:100%;height:100%;max-width:130px;max-height:110px;">
         <rect x="34" y="26" width="132" height="108" rx="4" stroke="${a}" stroke-width="2" fill="none"/>
         <text x="50" y="56" font-family="JetBrains Mono, monospace" font-size="11" fill="${a}">As a customer...</text>
         <text x="50" y="76" font-family="JetBrains Mono, monospace" font-size="11" fill="${a}">I want to attach</text>
@@ -1138,7 +1148,7 @@ function stageScene(type, accent){
         <text x="50" y="126" font-family="JetBrains Mono, monospace" font-size="10" fill="${a}" opacity="0.7">✓ acceptance criteria</text>
       </svg>`;
     case 'wireframe': return `
-      <svg viewBox="0 0 200 160" fill="none">
+      <svg viewBox="0 0 200 160" fill="none" style="width:100%;height:100%;max-width:130px;max-height:110px;">
         <rect x="40" y="20" width="120" height="120" rx="6" stroke="${a}" stroke-width="2"/>
         <rect x="56" y="44" width="88" height="44" rx="4" stroke="${a}" stroke-width="1.8" stroke-dasharray="4 4"/>
         <circle cx="100" cy="62" r="9" stroke="${a}" stroke-width="1.6"/>
@@ -1147,17 +1157,21 @@ function stageScene(type, accent){
         <rect x="112" y="100" width="32" height="14" rx="7" stroke="${a}" stroke-width="1.6"/>
       </svg>`;
     case 'pr': return `
-      <svg viewBox="0 0 200 160" fill="none">
-        <circle cx="64" cy="48" r="7" stroke="${a}" stroke-width="2"/>
-        <circle cx="64" cy="112" r="7" stroke="${a}" stroke-width="2"/>
-        <circle cx="136" cy="80" r="7" stroke="${a}" stroke-width="2"/>
-        <path d="M64 55v50" stroke="${a}" stroke-width="2"/>
-        <path d="M71 48c30 0 40 14 58 26" stroke="${a}" stroke-width="2" fill="none"/>
-        <text x="30" y="138" font-family="JetBrains Mono, monospace" font-size="10" fill="${a}">+184 −12</text>
-        <path d="M105 80h22M120 73l8 7-8 7" stroke="${a}" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+      <svg viewBox="0 0 200 160" fill="none" style="width:100%;height:100%;max-width:130px;max-height:110px;">
+        <rect x="36" y="28" width="128" height="100" rx="6" stroke="${a}" stroke-width="2.2"/>
+        <line x1="36" y1="46" x2="164" y2="46" stroke="${a}" stroke-width="2"/>
+        <circle cx="48" cy="37" r="3" fill="${a}" opacity="0.7"/>
+        <circle cx="58" cy="37" r="3" fill="${a}" opacity="0.45"/>
+        <circle cx="68" cy="37" r="3" fill="${a}" opacity="0.25"/>
+        <text x="50" y="68" font-family="JetBrains Mono, monospace" font-size="11" fill="${a}">&lt;/&gt;</text>
+        <line x1="86" y1="64" x2="138" y2="64" stroke="${a}" stroke-width="2" stroke-linecap="round" opacity="0.75"/>
+        <line x1="58" y1="84" x2="118" y2="84" stroke="${a}" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        <line x1="58" y1="100" x2="100" y2="100" stroke="${a}" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+        <rect x="58" y="112" width="2.4" height="13" fill="${a}"/>
+        <text x="44" y="146" font-family="JetBrains Mono, monospace" font-size="10" fill="${a}">+184 −12</text>
       </svg>`;
     case 'tests': return `
-      <svg viewBox="0 0 200 160" fill="none">
+      <svg viewBox="0 0 200 160" fill="none" style="width:100%;height:100%;max-width:130px;max-height:110px;">
         <rect x="46" y="24" width="108" height="112" rx="5" stroke="${a}" stroke-width="2"/>
         <rect x="60" y="40" width="12" height="12" rx="2" stroke="${a}" stroke-width="1.8"/>
         <path d="M62 46l3 3 5-6" stroke="${a}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
@@ -1173,7 +1187,7 @@ function stageScene(type, accent){
         <line x1="80" y1="118" x2="138" y2="118" stroke="${a}" stroke-width="1.6" opacity="0.7"/>
       </svg>`;
     case 'rocket': return `
-      <svg viewBox="0 0 200 160" fill="none">
+      <svg viewBox="0 0 200 160" fill="none" style="width:100%;height:100%;max-width:130px;max-height:110px;">
         <path d="M100 24c14 12 18 36 18 52 0 10-8 18-18 18s-18-8-18-18c0-16 4-40 18-52z" stroke="${a}" stroke-width="2" fill="${a}" fill-opacity="0.12"/>
         <circle cx="100" cy="58" r="7" stroke="${a}" stroke-width="1.8"/>
         <path d="M82 70l-12 22M118 70l12 22" stroke="${a}" stroke-width="2" stroke-linecap="round"/>
@@ -1181,7 +1195,7 @@ function stageScene(type, accent){
         <text x="56" y="142" font-family="JetBrains Mono, monospace" font-size="10" fill="${a}">5% → 100%</text>
       </svg>`;
     case 'headset': return `
-      <svg viewBox="0 0 200 160" fill="none">
+      <svg viewBox="0 0 200 160" fill="none" style="width:100%;height:100%;max-width:130px;max-height:110px;">
         <path d="M58 90v-6a42 42 0 0184 0v6" stroke="${a}" stroke-width="2" fill="none"/>
         <rect x="48" y="86" width="18" height="30" rx="7" stroke="${a}" stroke-width="2"/>
         <rect x="134" y="86" width="18" height="30" rx="7" stroke="${a}" stroke-width="2"/>
@@ -1228,18 +1242,19 @@ function renderStage(){
         </div>
         <div class="panel-postmark">CLM<br>1842</div>
       </div>
-      <p class="panel-blurb">${s.blurb}</p>
-
-      <div class="ticket-state" style="margin-left:30px; margin-right:30px;">
-        <div class="row"><span class="k">User Story</span><span class="v">CLM-1842</span></div>
-        <div class="row"><span class="k">Status</span><span class="v status">${s.status}</span></div>
-        <div class="row"><span class="k">Owner</span><span class="v">${s.assignee}</span></div>
-        <div class="row"><span class="k">Sprint</span><span class="v">${s.sprint}</span></div>
+      <div class="panel-intro">
+        <p class="panel-blurb">${s.blurb}</p>
+        <div class="ticket-state">
+          <div class="row"><span class="k">User Story</span><span class="v">CLM-1842</span></div>
+          <div class="row"><span class="k">Status</span><span class="v status">${s.status}</span></div>
+          <div class="row"><span class="k">Owner</span><span class="v">${s.assignee}</span></div>
+          <div class="row"><span class="k">Sprint</span><span class="v">${s.sprint}</span></div>
+        </div>
       </div>
 
       <div class="grid-two">
         <div>
-          <div style="background:var(--kraft); border:2px solid var(--line); border-radius:8px; padding:14px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; min-height:140px;">
+          <div style="background:var(--kraft); border:2px solid var(--line); border-radius:8px; padding:14px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; height:140px; max-height:140px; flex-shrink:0;">
             ${stageScene(s.scene, accent)}
           </div>
           <div class="who-panel">
