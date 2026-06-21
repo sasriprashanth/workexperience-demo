@@ -738,11 +738,17 @@
     margin-top: 20px; border: 3px double var(--ink); border-radius:6px; padding: 26px 22px;
     text-align:center; background: var(--kraft);
   }
+  .cert-seal{ margin: 0 auto 8px; width:72px; height:88px; }
   .cert-eyebrow{ font-family:'JetBrains Mono', monospace; font-size:10.5px; text-transform:uppercase; color: var(--ink-soft); letter-spacing:0.05em; }
   .certificate h2{ font-family:'Caveat', cursive; font-size:1.8rem; margin:8px 0; }
   .cert-name{ font-family:'Caveat', cursive; font-size:1.6rem; color: var(--coral); margin: 10px 0; }
   .cert-body-text{ font-size:0.82rem; color: var(--ink-soft); line-height:1.55; margin: 0 0 14px; }
   .cert-date{ font-family:'JetBrains Mono', monospace; font-size:11px; color: var(--ink-soft); }
+  .cert-id{ font-family:'JetBrains Mono', monospace; font-size:10px; color: var(--ink-soft); opacity:0.75; margin-top:4px; letter-spacing:0.03em; }
+  .cert-qr-block{ margin-top:16px; padding-top:14px; border-top:1px dashed var(--ink-soft); display:flex; flex-direction:column; align-items:center; gap:6px; }
+  .cert-qr-block .cert-qr-frame{ background:#fff; padding:8px; border-radius:4px; border:1px solid var(--ink-soft); }
+  .cert-qr-block svg{ width:78px; height:78px; display:block; }
+  .cert-qr-caption{ font-family:'JetBrains Mono', monospace; font-size:9.5px; color: var(--ink-soft); opacity:0.8; max-width:200px; line-height:1.4; }
   .cert-print-btn{
     margin-top:16px; font-family:'JetBrains Mono', monospace; font-size:12px;
     background: var(--paper); border:1.5px solid var(--ink); color: var(--ink);
@@ -750,7 +756,14 @@
   }
 
   @media print{
-    .page-nav, .tracker-section, .cert-badge, .cert-modal-close, .cert-generate-btn, .cert-name-input{ display:none !important; }
+    body > *:not(.cert-modal-overlay){ display:none !important; }
+    .cert-modal-overlay{
+      position: static !important; display:block !important; background:none !important;
+      padding:0 !important; min-height:0 !important;
+    }
+    .cert-modal{ box-shadow:none !important; max-width:100% !important; }
+    .cert-modal-close, .cert-generate-btn, .cert-name-input,
+    .cert-print-btn, .cert-modal-intro{ display:none !important; }
   }
 </style>
 </head>
@@ -1601,8 +1614,8 @@ function openCertModal(){
   const overlay = document.getElementById('certModalOverlay');
   const body = document.getElementById('certModalBody');
   body.innerHTML = `
-    <h3 style="font-family:'Caveat', cursive; font-size:1.7rem; margin:0 0 6px;">Nice work — you've explored every tab.</h3>
-    <p style="font-size:0.85rem; color:var(--ink-soft); margin:0 0 4px;">Enter a name and generate a certificate you can print or save as a PDF.</p>
+    <h3 class="cert-modal-intro" style="font-family:'Caveat', cursive; font-size:1.7rem; margin:0 0 6px;">Nice work — you've explored every tab.</h3>
+    <p class="cert-modal-intro" style="font-size:0.85rem; color:var(--ink-soft); margin:0 0 4px;">Enter a name and generate a certificate you can print or save as a PDF.</p>
     <input type="text" class="cert-name-input" id="certNameInput" placeholder="Enter your name" maxlength="60">
     <button class="cert-generate-btn" id="certGenerateBtn">Generate certificate</button>
     <div id="certOutput"></div>
@@ -1612,18 +1625,257 @@ function openCertModal(){
   document.getElementById('certGenerateBtn').addEventListener('click', () => {
     const name = document.getElementById('certNameInput').value.trim() || 'Work Experience Student';
     const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    const certId = generateCertId();
     document.getElementById('certOutput').innerHTML = `
       <div class="certificate">
+        <div class="cert-seal">${certSealSvg()}</div>
         <div class="cert-eyebrow">Certificate of Completion</div>
         <h2>The Life of a Ticket</h2>
         <div class="cert-name">${escapeHtml(name)}</div>
         <p class="cert-body-text">has completed a work experience walkthrough of the software development lifecycle — covering the journey, tools, evolution, day-in-the-life roles, and a set of hands-on challenges in the world of software delivery.</p>
         <div class="cert-date">${today}</div>
+        <div class="cert-id">Certificate ID: ${certId}</div>
+        <div class="cert-qr-block">
+          <div class="cert-qr-frame">${certQrSvg()}</div>
+          <span class="cert-qr-caption">Scan to revisit this site</span>
+        </div>
       </div>
-      <button class="cert-print-btn" id="certPrintBtn">Print / Save as PDF</button>
+      <button class="cert-print-btn" id="certDownloadBtn">Download certificate</button>
     `;
-    document.getElementById('certPrintBtn').addEventListener('click', () => window.print());
+    document.getElementById('certDownloadBtn').addEventListener('click', () => {
+      downloadCertificateAsImage(name, today, certId);
+    });
   });
+}
+
+function generateCertId(){
+  const year = new Date().getFullYear();
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // no ambiguous chars like 0/O, 1/I
+  let code = '';
+  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  return `WX-${year}-${code}`;
+}
+
+function certSealSvg(){
+  const ink = '#241F18', coral = '#C9523F', amber = '#C97A2B';
+  return `
+  <svg viewBox="0 0 72 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22 52L16 84L36 72L56 84L50 52" stroke="${ink}" stroke-width="2" stroke-linejoin="round" fill="${coral}" fill-opacity="0.14"/>
+    <circle cx="36" cy="32" r="26" fill="${amber}" fill-opacity="0.16" stroke="${ink}" stroke-width="2.2"/>
+    <circle cx="36" cy="32" r="19" fill="none" stroke="${ink}" stroke-width="1.4" stroke-dasharray="2.5 3"/>
+    <path d="M27 32l6 6 12-13" stroke="${coral}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>`;
+}
+
+// Pre-computed QR code for the site's own URL (https://sasriprashanth.github.io/workexperience-demo/)
+// Generated once offline — no live API call, so it works even with no internet or a blocked endpoint.
+const SITE_QR_MATRIX = [
+  '111111100111000001111011001111111',
+  '100000100001000101000010001000001',
+  '101110101011001000001100101011101',
+  '101110101111100100100011101011101',
+  '101110101110011111110101001011101',
+  '100000101011011000101100001000001',
+  '111111101010101010101010101111111',
+  '000000001100100010111100000000000',
+  '101111100101011001111010101111100',
+  '011010010111010011111111001101111',
+  '100101100111111111000000101010110',
+  '101100010001110111111111100011111',
+  '111011101011001110010010110011011',
+  '100110001111100101111101011001111',
+  '010111101001110111001000011001010',
+  '011001010101000100101100111001100',
+  '111100101011101111010011010110001',
+  '010000011001011010111101011101101',
+  '001100110100100100101110000110100',
+  '100010001011111100000111100111111',
+  '101011100001011000100000110111011',
+  '100110000100100110011101001001001',
+  '101111101000011001001100100011010',
+  '100001010001011010001111111111110',
+  '100110100111101001000010111111010',
+  '000000001001111011111011100010101',
+  '111111100111001101000111101010110',
+  '100000101101000111100111100011110',
+  '101110101011110110010010111111001',
+  '101110101000010101111101110010111',
+  '101110101011111110100000101100000',
+  '100000100001110100001111010011100',
+  '111111101100011111000011110100010'
+];
+
+function certQrSvg(){
+  const size = SITE_QR_MATRIX.length;
+  let rects = '';
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      if (SITE_QR_MATRIX[y][x] === '1') {
+        rects += `<rect x="${x}" y="${y}" width="1" height="1"/>`;
+      }
+    }
+  }
+  return `<svg viewBox="0 0 ${size} ${size}" fill="#241F18" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">${rects}</svg>`;
+}
+
+// Draws the certificate directly onto a canvas (rather than rasterizing the live HTML/CSS),
+// since externally-loaded web fonts often fail to render correctly when converting
+// HTML to canvas via the foreignObject technique. Canvas text APIs are used instead,
+// guaranteeing consistent output across browsers.
+function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight){
+  const words = text.split(' ');
+  let line = '';
+  let lines = [];
+  words.forEach(word => {
+    const testLine = line ? line + ' ' + word : word;
+    if (ctx.measureText(testLine).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = testLine;
+    }
+  });
+  if (line) lines.push(line);
+  lines.forEach((l, i) => ctx.fillText(l, x, y + i * lineHeight, maxWidth));
+  return lines.length;
+}
+
+function downloadCertificateAsImage(name, dateStr, certId){
+  const W = 900, H = 1100;
+  const canvas = document.createElement('canvas');
+  canvas.width = W;
+  canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  const ink = '#241F18', inkSoft = '#54493A', coral = '#C9523F', amber = '#C97A2B', kraft = '#E9DEC7', paper = '#FBF7EC';
+
+  // background
+  ctx.fillStyle = paper;
+  ctx.fillRect(0, 0, W, H);
+
+  // certificate card
+  const padX = 70, padY = 70;
+  const cardX = padX, cardY = padY, cardW = W - padX * 2, cardH = H - padY * 2;
+  ctx.fillStyle = kraft;
+  ctx.fillRect(cardX, cardY, cardW, cardH);
+  ctx.strokeStyle = ink;
+  ctx.lineWidth = 4;
+  ctx.strokeRect(cardX, cardY, cardW, cardH);
+  ctx.lineWidth = 2;
+  ctx.strokeRect(cardX + 10, cardY + 10, cardW - 20, cardH - 20);
+
+  const centerX = W / 2;
+  let cursorY = cardY + 80;
+
+  // seal: medallion + ribbon, drawn with canvas paths matching certSealSvg()
+  const sealCenterY = cursorY;
+  ctx.save();
+  ctx.translate(centerX, sealCenterY);
+  ctx.beginPath();
+  ctx.moveTo(-14, 20); ctx.lineTo(-20, 52); ctx.lineTo(0, 40); ctx.lineTo(20, 52); ctx.lineTo(14, 20);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(201,82,63,0.14)';
+  ctx.fill();
+  ctx.strokeStyle = ink; ctx.lineWidth = 2; ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(0, 0, 26, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(201,122,43,0.16)';
+  ctx.fill();
+  ctx.strokeStyle = ink; ctx.lineWidth = 2.2; ctx.stroke();
+
+  ctx.beginPath();
+  ctx.setLineDash([2.5, 3]);
+  ctx.arc(0, 0, 19, 0, Math.PI * 2);
+  ctx.strokeStyle = ink; ctx.lineWidth = 1.4; ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.beginPath();
+  ctx.moveTo(-9, 0); ctx.lineTo(-3, 6); ctx.lineTo(12, -13);
+  ctx.strokeStyle = coral; ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.stroke();
+  ctx.restore();
+
+  cursorY += 70;
+
+  // eyebrow
+  ctx.fillStyle = inkSoft;
+  ctx.font = '600 15px "Courier New", monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('CERTIFICATE OF COMPLETION', centerX, cursorY);
+  cursorY += 42;
+
+  // title
+  ctx.fillStyle = ink;
+  ctx.font = 'italic 700 38px Georgia, serif';
+  ctx.fillText('The Life of a Ticket', centerX, cursorY);
+  cursorY += 50;
+
+  // name
+  ctx.fillStyle = coral;
+  ctx.font = 'italic 700 34px Georgia, serif';
+  ctx.fillText(name, centerX, cursorY);
+  cursorY += 48;
+
+  // body text, wrapped
+  ctx.fillStyle = inkSoft;
+  ctx.font = '400 16px Arial, sans-serif';
+  const bodyText = 'has completed a work experience walkthrough of the software development lifecycle — covering the journey, tools, evolution, day-in-the-life roles, and a set of hands-on challenges in the world of software delivery.';
+  const lineCount = wrapCanvasText(ctx, bodyText, centerX, cursorY, cardW - 140, 24);
+  cursorY += lineCount * 24 + 26;
+
+  // date
+  ctx.fillStyle = inkSoft;
+  ctx.font = '600 14px "Courier New", monospace';
+  ctx.fillText(dateStr, centerX, cursorY);
+  cursorY += 22;
+
+  // certificate ID
+  ctx.font = '400 12px "Courier New", monospace';
+  ctx.fillText(`Certificate ID: ${certId}`, centerX, cursorY);
+  cursorY += 36;
+
+  // divider
+  ctx.beginPath();
+  ctx.setLineDash([4, 4]);
+  ctx.moveTo(cardX + 60, cursorY);
+  ctx.lineTo(cardX + cardW - 60, cursorY);
+  ctx.strokeStyle = inkSoft;
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  ctx.setLineDash([]);
+  cursorY += 30;
+
+  // QR code, drawn from the same bit matrix used for the on-screen SVG
+  const qrSize = 110;
+  const qrX = centerX - qrSize / 2;
+  const qrFramePad = 8;
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(qrX - qrFramePad, cursorY - qrFramePad, qrSize + qrFramePad * 2, qrSize + qrFramePad * 2);
+  ctx.strokeStyle = inkSoft;
+  ctx.lineWidth = 1;
+  ctx.strokeRect(qrX - qrFramePad, cursorY - qrFramePad, qrSize + qrFramePad * 2, qrSize + qrFramePad * 2);
+
+  const cellSize = qrSize / SITE_QR_MATRIX.length;
+  ctx.fillStyle = ink;
+  for (let y = 0; y < SITE_QR_MATRIX.length; y++) {
+    for (let x = 0; x < SITE_QR_MATRIX.length; x++) {
+      if (SITE_QR_MATRIX[y][x] === '1') {
+        ctx.fillRect(qrX + x * cellSize, cursorY + y * cellSize, cellSize, cellSize);
+      }
+    }
+  }
+  cursorY += qrSize + qrFramePad * 2 + 22;
+
+  ctx.fillStyle = inkSoft;
+  ctx.font = '400 12px "Courier New", monospace';
+  ctx.fillText('Scan to revisit this site', centerX, cursorY);
+
+  // trigger download
+  const link = document.createElement('a');
+  link.download = `certificate-${certId}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
 }
 
 function escapeHtml(str){
