@@ -846,43 +846,41 @@
 
 <section class="wrap" id="stageDetail" style="padding-bottom:10px;"></section>
 
-<section class="tryit wrap">
-  <div class="tryit-head">
-    <span class="stage-tag">Try it yourself</span>
-    <h2>Build the team.</h2>
-    <p>Drag each role onto the stage where they do their <em>most important</em> work on this ticket. Some roles show up in more than one place in real life — but for this exercise, pick the single stage where they matter most.</p>
+<section class="wrap ai-usecase-section">
+  <div class="ai-usecase-head">
+    <span class="eyebrow"><span class="dot"></span> A real AI use case</span>
+    <h2>What if CLM-1842 used AI too?</h2>
+    <p>Here's a realistic next step for the same claims-photo feature — and exactly which AI-era roles would actually touch it. (You can read more about each of these roles on the Day in the Life tab.)</p>
   </div>
-
-  <div class="board" id="board">
-    <div class="lane pool-lane" data-lane="pool">
-      <h4>Unplaced roles</h4>
-      <div class="lane-cards" id="pool"></div>
+  <div class="ai-usecase-card">
+    <div class="ai-usecase-feature">
+      <span class="ai-usecase-tag">Proposed feature</span>
+      <p><b>Automatically estimate the type and severity of damage</b> from the photo a customer uploads, so the claims handler sees a head start instead of a blank photo to assess from scratch.</p>
+    </div>
+    <div class="ai-usecase-roles">
+      <div class="ai-usecase-role">
+        <span class="aiur-name">AI/ML Engineer</span>
+        <span class="aiur-does">Trains the model on thousands of past labelled claim photos so it can recognise patterns like dents, cracks, and scrapes.</span>
+      </div>
+      <div class="ai-usecase-role">
+        <span class="aiur-name">Prompt Engineer / AI Interaction Designer</span>
+        <span class="aiur-does">Shapes how the model explains its reasoning in plain English, so the handler can see <i>why</i> it reached that assessment.</span>
+      </div>
+      <div class="ai-usecase-role">
+        <span class="aiur-name">AI Product Manager</span>
+        <span class="aiur-does">Decides how confident the model needs to be before its assessment is trusted without a human double-check.</span>
+      </div>
+      <div class="ai-usecase-role">
+        <span class="aiur-name">MLOps / AI Platform Engineer</span>
+        <span class="aiur-does">Watches the model's accuracy over time — claim photos in winter, at night, or after a storm can all look different to what it was trained on.</span>
+      </div>
+    </div>
+    <div class="ai-usecase-caveat">
+      <b>The honest caveat:</b> the model can get it wrong, especially on unusual or rare types of damage. That's exactly why a claims handler still reviews every assessment rather than acting on it automatically — the AI speeds things up, it doesn't replace the judgement call.
     </div>
   </div>
-
-  <div class="feedback" id="feedback">Drag a role card into a stage to begin.</div>
-  <button class="reset-btn" id="resetBoard">Reset board</button>
 </section>
 
-<section class="yourstory wrap">
-  <div class="tryit-head">
-    <span class="stage-tag">Now try it on something you actually use</span>
-    <h2>Write your own ticket.</h2>
-    <p>CLM-1842 started as one sentence about a real annoyance. Pick something you use all the time, name one thing that bugs you about it, and watch it turn into a proper User Story — the same way a real one would.</p>
-  </div>
-
-  <div class="yourstory-form">
-    <label class="ys-label" for="ysApp">An app or website you use a lot</label>
-    <input type="text" id="ysApp" class="ys-input" placeholder="e.g. Spotify, Instagram, our school's website" maxlength="40">
-
-    <label class="ys-label" for="ysWish">One thing you wish it did differently</label>
-    <input type="text" id="ysWish" class="ys-input" placeholder="e.g. let me undo a like by accident" maxlength="90">
-
-    <button class="game-check-btn" id="ysGenerateBtn">Turn this into a ticket →</button>
-  </div>
-
-  <div id="ysOutput"></div>
-</section>
 
 
 </div>
@@ -938,41 +936,6 @@
   <div class="dayinlife-grid" id="dayinlifeGrid"></div>
 </div>
 
-<section class="wrap ai-usecase-section">
-  <div class="ai-usecase-head">
-    <span class="eyebrow"><span class="dot"></span> A real AI use case</span>
-    <h2>What if CLM-1842 used AI too?</h2>
-    <p>Here's a realistic next step for the same claims-photo feature you've followed through this whole site — and exactly where each of the four new roles above would actually touch it.</p>
-  </div>
-  <div class="ai-usecase-card">
-    <div class="ai-usecase-feature">
-      <span class="ai-usecase-tag">Proposed feature</span>
-      <p><b>Automatically estimate the type and severity of damage</b> from the photo a customer uploads, so the claims handler sees a head start instead of a blank photo to assess from scratch.</p>
-    </div>
-    <div class="ai-usecase-roles">
-      <div class="ai-usecase-role">
-        <span class="aiur-name">AI/ML Engineer</span>
-        <span class="aiur-does">Trains the model on thousands of past labelled claim photos so it can recognise patterns like dents, cracks, and scrapes.</span>
-      </div>
-      <div class="ai-usecase-role">
-        <span class="aiur-name">Prompt Engineer / AI Interaction Designer</span>
-        <span class="aiur-does">Shapes how the model explains its reasoning in plain English, so the handler can see <i>why</i> it reached that assessment.</span>
-      </div>
-      <div class="ai-usecase-role">
-        <span class="aiur-name">AI Product Manager</span>
-        <span class="aiur-does">Decides how confident the model needs to be before its assessment is trusted without a human double-check.</span>
-      </div>
-      <div class="ai-usecase-role">
-        <span class="aiur-name">MLOps / AI Platform Engineer</span>
-        <span class="aiur-does">Watches the model's accuracy over time — claim photos in winter, at night, or after a storm can all look different to what it was trained on.</span>
-      </div>
-    </div>
-    <div class="ai-usecase-caveat">
-      <b>The honest caveat:</b> the model can get it wrong, especially on unusual or rare types of damage. That's exactly why a claims handler still reviews every assessment rather than acting on it automatically — the AI speeds things up, it doesn't replace the judgement call.
-    </div>
-  </div>
-</section>
-
 </div>
 
 <div class="page" id="page-trends">
@@ -992,16 +955,16 @@
 <div class="page" id="page-game">
 
 <section class="page-hero wrap">
-  <div class="eyebrow"><span class="dot"></span> Four quick challenges</div>
+  <div class="eyebrow"><span class="dot"></span> Six quick challenges</div>
   <h1>See what<br><em>actually stuck</em>.</h1>
-  <p>Four short activities pulling from everything on the other tabs — no new facts, just a quick check on what landed.</p>
+  <p>Six short activities pulling from everything on the other tabs — no new facts, just a quick check on what landed.</p>
 </section>
 
 <div class="wrap">
 
   <div class="game-block" id="game-order">
     <div class="game-head">
-      <span class="game-num">Activity 1 of 4</span>
+      <span class="game-num">Activity 1 of 6</span>
       <h2>Put the stages in order</h2>
       <p>Drag the seven SDLC stages into the correct sequence, from idea to support.</p>
     </div>
@@ -1012,9 +975,25 @@
     <button class="reset-btn" id="orderResetBtn">Reset</button>
   </div>
 
+  <div class="game-block" id="game-team">
+    <div class="game-head">
+      <span class="game-num">Activity 2 of 6</span>
+      <h2>Build the team.</h2>
+      <p>Drag each role onto the stage where they do their <em>most important</em> work on this ticket. Some roles show up in more than one place in real life — but for this exercise, pick the single stage where they matter most.</p>
+    </div>
+    <div class="board" id="board">
+      <div class="lane pool-lane" data-lane="pool">
+        <h4>Unplaced roles</h4>
+        <div class="lane-cards" id="pool"></div>
+      </div>
+    </div>
+    <div class="game-feedback" id="feedback">Drag a role card into a stage to begin.</div>
+    <button class="reset-btn" id="resetBoard">Reset board</button>
+  </div>
+
   <div class="game-block" id="game-quiz">
     <div class="game-head">
-      <span class="game-num">Activity 2 of 4</span>
+      <span class="game-num">Activity 3 of 6</span>
       <h2>Quick quiz</h2>
       <p>Ten questions pulled from every tab on this site. Pick one answer for each.</p>
     </div>
@@ -1026,7 +1005,7 @@
 
   <div class="game-block" id="game-spotbug">
     <div class="game-head">
-      <span class="game-num">Activity 3 of 4</span>
+      <span class="game-num">Activity 4 of 6</span>
       <h2>Spot the bug</h2>
       <p>Each of these is based on something real from earlier tabs — but one detail has been deliberately changed to be wrong. Click the part that's broken.</p>
     </div>
@@ -1037,13 +1016,31 @@
 
   <div class="game-block" id="game-guessrole">
     <div class="game-head">
-      <span class="game-num">Activity 4 of 4</span>
+      <span class="game-num">Activity 5 of 6</span>
       <h2>Guess the role</h2>
       <p>A quick illustration of someone's screen and desk — based on the clues, which role does it belong to?</p>
     </div>
     <div id="guessroleContainer"></div>
     <div class="game-feedback" id="guessroleFeedback">Round 1 of 5 — pick a role based on the clues.</div>
     <button class="reset-btn" id="guessroleResetBtn">Reset</button>
+  </div>
+
+  <div class="game-block" id="game-yourstory">
+    <div class="game-head">
+      <span class="game-num">Activity 6 of 6</span>
+      <h2>Write your own ticket.</h2>
+      <p>CLM-1842 started as one sentence about a real annoyance. Pick something you use all the time, name one thing that bugs you about it, and watch it turn into a proper User Story — the same way a real one would.</p>
+    </div>
+    <div class="yourstory-form">
+      <label class="ys-label" for="ysApp">An app or website you use a lot</label>
+      <input type="text" id="ysApp" class="ys-input" placeholder="e.g. Spotify, Instagram, our school's website" maxlength="40">
+
+      <label class="ys-label" for="ysWish">One thing you wish it did differently</label>
+      <input type="text" id="ysWish" class="ys-input" placeholder="e.g. let me undo a like by accident" maxlength="90">
+
+      <button class="game-check-btn" id="ysGenerateBtn">Turn this into a ticket →</button>
+    </div>
+    <div id="ysOutput"></div>
   </div>
 
 </div>
@@ -1441,7 +1438,7 @@ document.querySelectorAll('.lane').forEach(lane => {
       dragged.classList.remove('placed');
       dragged.draggable = true;
       feedbackEl.textContent = 'Drag a role card into a stage to begin.';
-      feedbackEl.className = 'feedback';
+      feedbackEl.className = 'game-feedback';
       return;
     }
 
@@ -1449,11 +1446,19 @@ document.querySelectorAll('.lane').forEach(lane => {
       cardsContainer.appendChild(dragged);
       dragged.classList.add('placed');
       dragged.draggable = false;
-      feedbackEl.textContent = `✓ Correct — ${role.label} does their most important work in ${laneNames[laneId]}.`;
-      feedbackEl.className = 'feedback good';
+      const allPlaced = document.querySelectorAll('.role-card.placed').length === roles.length;
+      if (allPlaced) {
+        feedbackEl.textContent = `✓ Correct — ${role.label} does their most important work in ${laneNames[laneId]}. All roles placed!`;
+        feedbackEl.className = 'game-feedback good';
+        celebrateComplete();
+      } else {
+        feedbackEl.textContent = `✓ Correct — ${role.label} does their most important work in ${laneNames[laneId]}.`;
+        feedbackEl.className = 'game-feedback good';
+        celebrateStep();
+      }
     } else {
       feedbackEl.textContent = `Not quite — ${role.label}'s main contribution is actually in ${laneNames[role.correct]}. Try dragging them there.`;
-      feedbackEl.className = 'feedback bad';
+      feedbackEl.className = 'game-feedback bad';
     }
   });
 });
@@ -1462,7 +1467,7 @@ document.getElementById('resetBoard').addEventListener('click', () => {
   renderPool();
   document.querySelectorAll('.lane:not(.pool-lane) .lane-cards').forEach(c => c.innerHTML = '');
   feedbackEl.textContent = 'Drag a role card into a stage to begin.';
-  feedbackEl.className = 'feedback';
+  feedbackEl.className = 'game-feedback';
 });
 
 // ---------------- WRITE YOUR OWN TICKET ----------------
@@ -1541,6 +1546,7 @@ document.getElementById('ysGenerateBtn').addEventListener('click', () => {
       <p class="ys-hint">This is exactly the format a Product Owner would actually write — yours just took 10 seconds instead of a workshop.</p>
     </div>
   `;
+  celebrateComplete();
 });
 
 // ---------------- PAGE TAB SWITCHING ----------------
@@ -2109,6 +2115,7 @@ document.getElementById('orderCheckBtn').addEventListener('click', () => {
   } else if (correctCount === 7) {
     feedback.textContent = '✓ All 7 in the correct order!';
     feedback.className = 'game-feedback good';
+    celebrateComplete();
   } else {
     feedback.textContent = `${correctCount} of 7 in the right place — green slots are correct, red ones need another look.`;
     feedback.className = 'game-feedback bad';
@@ -2188,27 +2195,26 @@ document.getElementById('quizCheckBtn').addEventListener('click', () => {
   } else if (correctCount === quizQuestions.length) {
     feedback.textContent = `✓ ${correctCount} out of ${quizQuestions.length} — perfect score!`;
     feedback.className = 'game-feedback good';
-    celebratePerfectScore();
+    celebrateComplete();
   } else {
     feedback.textContent = `${correctCount} out of ${quizQuestions.length} correct — green is the right answer, red is what you picked.`;
     feedback.className = 'game-feedback bad';
   }
 });
 
-// ---------- Celebration: confetti + sound on perfect quiz score ----------
-function playCelebrationSound(){
+// ---------- Celebration: confetti + sound, reused across all 4 activities ----------
+function playTone(freqs, gainPeak){
   try {
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
     const ctx = new AudioCtx();
-    const notes = [523.25, 659.25, 783.99, 1046.50];
-    notes.forEach((freq, i) => {
+    freqs.forEach((freq, i) => {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.type = 'sine';
       osc.frequency.value = freq;
       const startTime = ctx.currentTime + i * 0.12;
       gain.gain.setValueAtTime(0.0001, startTime);
-      gain.gain.exponentialRampToValueAtTime(0.18, startTime + 0.02);
+      gain.gain.exponentialRampToValueAtTime(gainPeak, startTime + 0.02);
       gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.35);
       osc.connect(gain);
       gain.connect(ctx.destination);
@@ -2218,8 +2224,10 @@ function playCelebrationSound(){
   } catch (e) {}
 }
 
-function celebratePerfectScore(){
-  playCelebrationSound();
+function playCelebrationSound(){ playTone([523.25, 659.25, 783.99, 1046.50], 0.18); }
+function playTickSound(){ playTone([880], 0.08); }
+
+function burstConfetti(count, durationFrames, originY){
   const canvas = document.getElementById('confettiCanvas');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
@@ -2228,11 +2236,12 @@ function celebratePerfectScore(){
 
   const colors = ['#C97A2B', '#2E7A6B', '#C9523F', '#4A5A75', '#F3E9A8'];
   const pieces = [];
-  for (let i = 0; i < 140; i++) {
+  const startY = originY !== undefined ? originY : -20;
+  for (let i = 0; i < count; i++) {
     pieces.push({
       x: Math.random() * canvas.width,
-      y: -20 - Math.random() * canvas.height * 0.3,
-      size: 6 + Math.random() * 6,
+      y: startY - Math.random() * canvas.height * 0.2,
+      size: 5 + Math.random() * 6,
       color: colors[Math.floor(Math.random() * colors.length)],
       speedY: 2 + Math.random() * 3,
       speedX: (Math.random() - 0.5) * 2,
@@ -2242,7 +2251,6 @@ function celebratePerfectScore(){
   }
 
   let frame = 0;
-  const maxFrames = 220;
   function animate(){
     frame++;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -2257,7 +2265,7 @@ function celebratePerfectScore(){
       ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size * 0.6);
       ctx.restore();
     });
-    if (frame < maxFrames) {
+    if (frame < durationFrames) {
       requestAnimationFrame(animate);
     } else {
       canvas.style.display = 'none';
@@ -2265,6 +2273,18 @@ function celebratePerfectScore(){
     }
   }
   animate();
+}
+
+// small, quiet burst for each correct step within an activity
+function celebrateStep(){
+  playTickSound();
+  burstConfetti(18, 70);
+}
+
+// full celebration for completing an entire activity
+function celebrateComplete(){
+  playCelebrationSound();
+  burstConfetti(140, 220);
 }
 
 document.getElementById('quizResetBtn').addEventListener('click', initQuiz);
@@ -2328,8 +2348,15 @@ function attachSpotBugEvents(){
         document.getElementById('spotbugExplain' + roundIdx).classList.add('shown');
         roundEl.querySelector('.spotbug-next').style.display = 'inline-block';
         spotbugSolvedRounds.add(roundIdx);
-        feedback.textContent = `✓ Found it! ${spotbugSolvedRounds.size} of ${spotbugRounds.length} rounds solved.`;
-        feedback.className = 'game-feedback good';
+        if (spotbugSolvedRounds.size === spotbugRounds.length) {
+          feedback.textContent = `✓ Found it! All ${spotbugRounds.length} bugs spotted.`;
+          feedback.className = 'game-feedback good';
+          celebrateComplete();
+        } else {
+          feedback.textContent = `✓ Found it! ${spotbugSolvedRounds.size} of ${spotbugRounds.length} rounds solved.`;
+          feedback.className = 'game-feedback good';
+          celebrateStep();
+        }
       } else {
         part.classList.add('found-wrong');
         feedback.textContent = "Not quite that one — look again.";
@@ -2500,8 +2527,15 @@ function attachGuessRoleEvents(){
         document.getElementById('grExplain' + roundIdx).classList.add('shown');
         roundEl.querySelector('.gr-next').style.display = 'inline-block';
         guessRoleSolvedRounds.add(roundIdx);
-        feedback.textContent = `✓ Correct! ${guessRoleSolvedRounds.size} of ${guessRoleRounds.length} rounds solved.`;
-        feedback.className = 'game-feedback good';
+        if (guessRoleSolvedRounds.size === guessRoleRounds.length) {
+          feedback.textContent = `✓ Correct! All ${guessRoleRounds.length} roles guessed.`;
+          feedback.className = 'game-feedback good';
+          celebrateComplete();
+        } else {
+          feedback.textContent = `✓ Correct! ${guessRoleSolvedRounds.size} of ${guessRoleRounds.length} rounds solved.`;
+          feedback.className = 'game-feedback good';
+          celebrateStep();
+        }
       } else {
         opt.classList.add('wrong-answer');
         feedback.textContent = 'Not quite — look at the clues again.';
