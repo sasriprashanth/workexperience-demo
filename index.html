@@ -355,6 +355,47 @@
   }
   .reset-btn:hover{ border-color: var(--ink); color: var(--ink); }
 
+  /* ================= WRITE YOUR OWN TICKET ================= */
+  .yourstory{ padding: 10px 0 50px; border-top: 2px dashed var(--ink-soft); margin-top: 10px; }
+  .yourstory .tryit-head{ margin-bottom: 26px; }
+
+  .yourstory-form{
+    max-width: 560px; margin: 0 auto 24px;
+    background: var(--paper); border: 2px solid var(--line); border-radius: 10px;
+    padding: 22px 24px;
+    box-shadow: 5px 6px 0 rgba(36,31,24,0.12);
+  }
+  .ys-label{
+    display:block; font-family:'JetBrains Mono', monospace; font-size:11px;
+    text-transform:uppercase; letter-spacing:0.04em; color: var(--ink-soft);
+    margin: 14px 0 6px;
+  }
+  .ys-label:first-child{ margin-top:0; }
+  .ys-input{
+    width:100%; font-family:'Lexend', sans-serif; font-size:0.92rem;
+    padding: 10px 13px; border: 1.5px solid var(--ink-soft); border-radius:7px;
+    background: var(--kraft); color: var(--ink); box-sizing:border-box;
+  }
+  .ys-input:focus{ outline:none; border-color: var(--coral); }
+  #ysGenerateBtn{ margin-top:18px; width:100%; }
+
+  .ys-card-wrap{ max-width: 560px; margin: 0 auto; animation: ysPop 0.25s ease; }
+  @keyframes ysPop{ from{ opacity:0; transform: translateY(8px); } to{ opacity:1; transform: translateY(0); } }
+  .ys-ticket-id{
+    font-family:'JetBrains Mono', monospace; font-weight:600; font-size:0.82rem;
+    background: var(--coral); color:#fff; padding: 4px 10px; border-radius:4px;
+    display:inline-block; margin-bottom:10px;
+  }
+  .ys-hint{
+    font-family:'JetBrains Mono', monospace; font-size:11px; color: var(--ink-soft);
+    text-align:center; margin-top:14px;
+  }
+
+  @media (max-width: 600px){
+    .yourstory-form{ padding: 18px 18px; }
+  }
+
+
   /* ================= TOOLS PAGE ================= */
   .tool-stage-block{ margin: 0 0 44px; }
   .tool-stage-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:16px; }
@@ -743,7 +784,7 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow"><span class="dot"></span> Work experience · week briefing</div>
+    <div class="eyebrow"><span class="dot"></span> A guide for your work experience week</div>
     <h1 class="title">Follow one idea<br>from <em>sticky note</em> to <em>live in the app</em>.</h1>
     <p class="hero-sub">Apps and websites don't just appear — people plan them, design them, write code, test it, and release it, usually in that order. That whole process is called the <b>software development lifecycle</b>, and it's what this site walks through. Every feature you've ever used in an app went through it. We're going to follow one ticket, start to finish, through the stages, the people, and the decisions it passes through.</p>
     <div class="hero-card">
@@ -786,6 +827,9 @@
         <span class="g-term" data-term="stand-up" data-def="A short daily catch-up, often 10–15 minutes, where everyone says what they did yesterday, what they're doing today, and what's blocking them.">stand-up</span>
         <span class="g-term" data-term="acceptance criteria" data-def="The exact, specific conditions a piece of work has to meet before anyone agrees it's actually finished.">acceptance criteria</span>
         <span class="g-term" data-term="sprint" data-def="A short, fixed block of time — usually 1–2 weeks — that a team commits to finishing a set amount of work in, then reviews and resets for the next one.">sprint</span>
+        <span class="g-term" data-term="story points" data-def="A rough number the team agrees on to describe how big or tricky a piece of work feels — not hours or days, just a relative size compared to other tickets they've done before.">story points</span>
+        <span class="g-term" data-term="Change Advisory Board" data-def="A group, separate from the people who built the feature, who review and approve a release before it goes live — checking risk and timing, especially important in regulated industries like insurance.">Change Advisory Board</span>
+        <span class="g-term" data-term="retrospective" data-def="A short, honest team conversation at the end of a sprint: what went well, what didn't, and what to change next time — so the team actually improves cycle after cycle.">retrospective</span>
         <span class="g-term" data-term="threat model" data-def="A structured session, usually run at design time, where the team deliberately asks 'how could someone abuse this?' before any code exists — so the defence can be designed in from the start, rather than bolted on after something goes wrong.">threat model</span>
       </div>
       <div class="glossary-def" id="glossaryDef">Tap a word above to see what it means.</div>
@@ -818,6 +862,26 @@
 
   <div class="feedback" id="feedback">Drag a role card into a stage to begin.</div>
   <button class="reset-btn" id="resetBoard">Reset board</button>
+</section>
+
+<section class="yourstory wrap">
+  <div class="tryit-head">
+    <span class="stage-tag">Now try it on something you actually use</span>
+    <h2>Write your own ticket.</h2>
+    <p>CLM-1842 started as one sentence about a real annoyance. Pick something you use all the time, name one thing that bugs you about it, and watch it turn into a proper User Story — the same way a real one would.</p>
+  </div>
+
+  <div class="yourstory-form">
+    <label class="ys-label" for="ysApp">An app or website you use a lot</label>
+    <input type="text" id="ysApp" class="ys-input" placeholder="e.g. Spotify, Instagram, our school's website" maxlength="40">
+
+    <label class="ys-label" for="ysWish">One thing you wish it did differently</label>
+    <input type="text" id="ysWish" class="ys-input" placeholder="e.g. let me undo a like by accident" maxlength="90">
+
+    <button class="game-check-btn" id="ysGenerateBtn">Turn this into a ticket →</button>
+  </div>
+
+  <div id="ysOutput"></div>
 </section>
 
 
@@ -1012,14 +1076,15 @@ const stages = [
   {
     id: 'shaping', name: 'Refinement', tag: 'Stage 2 of 7', status: 'Ready for Design',
     assignee: 'Product Owner + Business Analyst', sprint: 'Backlog refinement',
-    blurb: "The idea is approved. Now it has to become something specific enough for a designer and engineer to actually act on. This is where 'add photos' turns into precise rules — and gets written up as a User Story.",
+    blurb: "The idea is approved. Now it has to become something specific enough for a designer and engineer to actually act on. This is where 'add photos' turns into precise rules — and gets written up as a User Story. The team also takes a guess at how big the job actually is, before anyone commits to a deadline.",
     responsibilities: { title: 'Who does what', items: [
       '<b>Product Owner</b> writes the User Story and acceptance criteria — the exact conditions for "done."',
       '<b>Business Analyst</b> checks this against insurance regulations — claim photos may be evidence, so there are rules about storage and retention.',
-      '<b>Designer</b> starts early sketches of how the upload button might look on the existing form.'
+      '<b>Designer</b> starts early sketches of how the upload button might look on the existing form.',
+      '<b>Whole team</b> estimates the work together — usually a quick number (story points) rather than a promised date, since nobody really knows yet how tricky it\'ll be until they start.'
     ]},
     artifactLabel: 'User Story',
-    artifact: `<b>As a</b> customer submitting a claim<br><b>I want to</b> attach photos of the damage<br><b>So that</b> I don't have to call or post anything in<br><br><b>Acceptance criteria:</b><br>• Accepts JPEG/PNG up to 10MB<br>• Max 5 photos per claim<br>• Photo is visible to the claims handler within 1 minute`,
+    artifact: `<b>As a</b> customer submitting a claim<br><b>I want to</b> attach photos of the damage<br><b>So that</b> I don't have to call or post anything in<br><br><b>Acceptance criteria:</b><br>• Accepts JPEG/PNG up to 10MB<br>• Max 5 photos per claim<br>• Photo is visible to the claims handler within 1 minute<br><br><b>Estimate:</b> 5 story points <span style="opacity:0.65;">(team's gut-feel guess of size, not a deadline)</span>`,
     scene: 'story'
   },
   {
@@ -1087,14 +1152,15 @@ const stages = [
   {
     id: 'deployment', name: 'Deployment', tag: 'Stage 6 of 7', status: 'Deploying',
     assignee: 'Engineering Lead', sprint: 'Sprint 16',
-    blurb: "Testing is signed off, so now the feature actually goes live — usually to a small slice of customers first, in case something only shows up at real-world scale.",
+    blurb: "Testing is signed off, so now the feature actually goes live — usually to a small slice of customers first, in case something only shows up at real-world scale. In a regulated industry like insurance, nothing reaches customers without someone outside the build team formally agreeing it's safe to release.",
     responsibilities: { title: 'Who does what', items: [
+      '<b>Change Advisory Board</b> reviews the release before it happens — checking it won\'t clash with other changes, and that risk to customers and data is properly understood. This sign-off happens whether or not the technical testing already passed.',
       '<b>Engineering Lead</b> releases it to 5% of customers first, watching closely before rolling out to everyone.',
       '<b>DevOps / Platform Engineer</b> runs the automated pipeline that pushes the code live and watches the dashboards as it goes out.',
       '<b>Product Owner</b> confirms the rollout matches what was agreed in the User Story before sign-off.'
     ]},
     artifactLabel: 'Deployment log',
-    artifact: `<b>User Story CLM-1842 — Photo upload on claims form</b><br>Deploying to 5% of customers · 14 Nov, 09:02<br><br>✓ Build passed · ✓ Security scan clear · ✓ Health checks green<br><br><i>Auto-rollback armed: if error rate exceeds 1%, this release reverts automatically.</i>`,
+    artifact: `<b>User Story CLM-1842 — Photo upload on claims form</b><br><b>Change record CHG0041207:</b> Approved by Change Advisory Board · 13 Nov<br><br>Deploying to 5% of customers · 14 Nov, 09:02<br><br>✓ Build passed · ✓ Security scan clear · ✓ Health checks green<br><br><i>Auto-rollback armed: if error rate exceeds 1%, this release reverts automatically.</i>`,
     scene: 'rocket'
   },
   {
@@ -1105,10 +1171,11 @@ const stages = [
       '<b>Support Engineer</b> handles any new questions or confusion the change might cause, and logs anything unexpected in <b>ServiceNow</b>, the company\'s ticketing system.',
       '<b>Incident Management</b> kicks in the moment something breaks for real customers — the goal is simple: get it working again, fast, even with a temporary fix.',
       '<b>Problem Management</b> happens afterwards — a calmer, deeper dig into <i>why</i> it broke, so the same fault doesn\'t come back next month.',
-      '<b>Product Owner</b> tracks whether call-centre volume actually drops, the metric this whole User Story was meant to move.'
+      '<b>Product Owner</b> tracks whether call-centre volume actually drops, the metric this whole User Story was meant to move.',
+      '<b>Whole team</b> holds a retrospective at the end of the sprint — a short, honest "what went well, what didn\'t, what do we change next time" — before going straight back to a new Idea.'
     ]},
     artifactLabel: 'ServiceNow — incident & problem record',
-    artifact: `<b>INC0048213</b> · Priority 2 · <span style="color:var(--coral)">Resolved</span><br>"Photo upload fails on older Android browsers"<br>Reported by a customer, logged by a Support Engineer → fixed and redeployed within 6 hours<br><br><b>PRB0003122</b> · Problem record raised from the incident above<br><b>Root cause:</b> Image library didn't support one older file format<br><b>Permanent fix:</b> Added format conversion step + added this case to the automated test suite, so it can't slip through again<br><br><b>Impact after 2 weeks:</b> Claims-related calls down 21%. Customers now attach a photo in under 90 seconds on average.`,
+    artifact: `<b>INC0048213</b> · Priority 2 · <span style="color:var(--coral)">Resolved</span><br>"Photo upload fails on older Android browsers"<br>Reported by a customer, logged by a Support Engineer → fixed and redeployed within 6 hours<br><br><b>PRB0003122</b> · Problem record raised from the incident above<br><b>Root cause:</b> Image library didn't support one older file format<br><b>Permanent fix:</b> Added format conversion step + added this case to the automated test suite, so it can't slip through again<br><br><b>Impact after 2 weeks:</b> Claims-related calls down 21%. Customers now attach a photo in under 90 seconds on average.<br><br><b>Retro note:</b> "We underestimated this one — bump similar tickets up by 1-2 story points next time."`,
     scene: 'headset'
   }
 ];
@@ -1396,6 +1463,84 @@ document.getElementById('resetBoard').addEventListener('click', () => {
   document.querySelectorAll('.lane:not(.pool-lane) .lane-cards').forEach(c => c.innerHTML = '');
   feedbackEl.textContent = 'Drag a role card into a stage to begin.';
   feedbackEl.className = 'feedback';
+});
+
+// ---------------- WRITE YOUR OWN TICKET ----------------
+function ysGenerateAcceptanceCriteria(wish){
+  const w = wish.toLowerCase();
+  const criteria = [];
+
+  if (/undo|delet|remov|accident/.test(w)) {
+    criteria.push('Gives the customer a clear way to undo or reverse the action');
+  }
+  if (/fast|slow|speed|quick|load/.test(w)) {
+    criteria.push('Loads or responds in under 2 seconds in normal use');
+  }
+  if (/notif|alert|remind/.test(w)) {
+    criteria.push('Notification can be turned off in settings');
+  }
+  if (/see|show|display|view/.test(w)) {
+    criteria.push('The change is visible without needing to refresh or restart the app');
+  }
+  if (/easi|simpl|confus|understand/.test(w)) {
+    criteria.push('No extra menus or steps added beyond what exists today');
+  }
+  if (/dark|colour|color|theme|design|look/.test(w)) {
+    criteria.push('Matches the existing visual style of the rest of the app');
+  }
+
+  // generic fallbacks so there are always at least 2-3 lines, regardless of wording
+  const fallbacks = [
+    'Works the same way on both phone and desktop',
+    'Does not break any existing feature that already works',
+    'A customer can tell straight away that it worked'
+  ];
+  let i = 0;
+  while (criteria.length < 3 && i < fallbacks.length) {
+    if (!criteria.includes(fallbacks[i])) criteria.push(fallbacks[i]);
+    i++;
+  }
+  return criteria.slice(0, 3);
+}
+
+function ysEscapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+document.getElementById('ysGenerateBtn').addEventListener('click', () => {
+  const appInput = document.getElementById('ysApp').value.trim();
+  const wishInput = document.getElementById('ysWish').value.trim();
+  const output = document.getElementById('ysOutput');
+
+  if (!appInput || !wishInput) {
+    output.innerHTML = `<p class="ys-hint" style="color:var(--coral);">Fill in both boxes above first — what app, and what you'd change about it.</p>`;
+    return;
+  }
+
+  const app = ysEscapeHtml(appInput);
+  const wish = ysEscapeHtml(wishInput);
+  const ticketNum = Math.floor(1000 + Math.random() * 9000);
+  const prefix = app.replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase() || 'APP';
+  const criteria = ysGenerateAcceptanceCriteria(wishInput);
+
+  output.innerHTML = `
+    <div class="ys-card-wrap">
+      <div class="ys-ticket-id">${prefix}-${ticketNum}</div>
+      <div class="artifact">
+        <div class="label">User Story — written by you</div>
+        <div class="artifact-content">
+          <b>As a</b> person who uses ${app}<br>
+          <b>I want to</b> ${wish}<br>
+          <b>So that</b> using ${app} is less annoying and more useful<br><br>
+          <b>Acceptance criteria:</b><br>
+          ${criteria.map(c => `• ${c}`).join('<br>')}
+        </div>
+      </div>
+      <p class="ys-hint">This is exactly the format a Product Owner would actually write — yours just took 10 seconds instead of a workshop.</p>
+    </div>
+  `;
 });
 
 // ---------------- PAGE TAB SWITCHING ----------------
