@@ -422,6 +422,10 @@
   .tool-more-text{ font-size:0.8rem; color: var(--ink-soft); line-height:1.5; margin:0 0 8px; }
   .tool-link{ font-family:'JetBrains Mono', monospace; font-size:11.5px; color: var(--coral); font-weight:600; }
   .tool-link-none{ color: var(--ink-soft); font-weight:400; }
+  .tool-examples{ display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+  .tool-examples-label{ font-family:'JetBrains Mono', monospace; font-size:11px; color: var(--ink-soft); margin-right:2px; }
+  .tool-examples .tool-link{ background: rgba(201,82,63,0.08); padding:3px 8px; border-radius:20px; text-decoration:none; }
+  .tool-examples .tool-link:hover{ background: rgba(201,82,63,0.16); }
   .tool-expand-hint{
     display:block; margin-top:10px; font-family:'JetBrains Mono', monospace; font-size:10px;
     color: var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em;
@@ -1152,10 +1156,10 @@ const stages = [
     ]},
     artifactLabel: 'Test results — four kinds of testing',
     artifact: `<ul class="checklist">
-      <li><span class="box pass"></span> <b>Functional</b> (Tools used: Playwright) — automated test re-runs all 14 upload scenarios on every code change, in under 3 minutes</li>
-      <li><span class="box fail"></span> <b>Security · SAST</b> (Tools used: Snyk) — scan of the code itself flags one outdated image-processing library with a known vulnerability</li>
-      <li><span class="box pass"></span> <b>Security · DAST</b> (Tools used: Invicti) — scan of the live running app finds no way to bypass the file-type check</li>
-      <li><span class="box pass"></span> <b>Performance</b> (Tools used: JMeter / Azure Load Testing) — 5,000 simulated uploads at once, page stays under 2 second response time</li>
+      <li><span class="box pass"></span> <b>Functional</b> (Test automation tooling) — automated test re-runs all 14 upload scenarios on every code change, in under 3 minutes</li>
+      <li><span class="box fail"></span> <b>Security · SAST</b> (Static code scanning tooling) — scan of the code itself flags one outdated image-processing library with a known vulnerability</li>
+      <li><span class="box pass"></span> <b>Security · DAST</b> (Live app scanning tooling) — scan of the live running app finds no way to bypass the file-type check</li>
+      <li><span class="box pass"></span> <b>Performance</b> (Load testing tooling) — 5,000 simulated uploads at once, page stays under 2 second response time</li>
     </ul>`,
     scene: 'tests'
   },
@@ -1918,10 +1922,26 @@ const toolStages = [
     { cat: 'Running it', name: 'Cloud platform (AWS / Azure)', desc: "Rented computers that actually run the app — nobody at most companies owns the physical servers anymore.", url: "https://azure.microsoft.com", more: "Instead of buying and maintaining physical servers, companies rent exactly the computing power they need from providers like Microsoft Azure or Amazon Web Services, and scale it up or down on demand." }
   ]},
   { stage: 'Testing', when: 'Trying to break it on purpose, in four different ways', tools: [
-    { cat: 'Test automation', name: 'Playwright', desc: "Writes the upload journey once as code, then replays it automatically on every single code change — no human re-clicking through it each time.", url: "https://playwright.dev", more: "Built by Microsoft, Playwright can drive a real browser exactly like a person would — clicking, typing, uploading files — but scripted, so it never gets bored or misses a step." },
-    { cat: 'Security · SAST', name: 'Snyk', desc: "Static Application Security Testing — scans the source code itself for known vulnerabilities, like an outdated library with a public security flaw.", url: "https://snyk.io", more: "\"Static\" means it checks the code without running it — like proofreading a recipe for mistakes before ever cooking it." },
-    { cat: 'Security · DAST', name: 'Invicti', desc: "Dynamic Application Security Testing — attacks the live running app the way a hacker would, trying to break in from the outside.", url: "https://www.invicti.com", more: "\"Dynamic\" means it tests the app while it's actually running — like a safety inspector trying every door and window on a finished building rather than just reading the blueprints." },
-    { cat: 'Performance testing', name: 'JMeter / Azure Load Testing', desc: "Simulates thousands of people uploading photos at the exact same time, to check the system doesn't slow down or crash under real demand.", url: "https://jmeter.apache.org", more: "JMeter is free and open-source, built by the Apache Software Foundation; Azure Load Testing is Microsoft's managed equivalent for teams already running on Azure." }
+    { cat: 'Functional testing', name: 'Test automation', desc: "Writes the upload journey once as code, then replays it automatically on every single code change — no human re-clicking through it each time.", more: "These tools can drive a real browser exactly like a person would — clicking, typing, uploading files — but scripted, so it never gets bored or misses a step.", examples: [
+        { name: 'Playwright', url: 'https://playwright.dev' },
+        { name: 'Cypress', url: 'https://www.cypress.io' },
+        { name: 'Selenium', url: 'https://www.selenium.dev' }
+    ]},
+    { cat: 'Security · SAST', name: 'Static code scanning', desc: "Static Application Security Testing — scans the source code itself for known vulnerabilities, like an outdated library with a public security flaw.", more: "\"Static\" means it checks the code without running it — like proofreading a recipe for mistakes before ever cooking it.", examples: [
+        { name: 'Snyk', url: 'https://snyk.io' },
+        { name: 'SonarQube', url: 'https://www.sonarsource.com/products/sonarqube/' },
+        { name: 'Checkmarx', url: 'https://checkmarx.com' }
+    ]},
+    { cat: 'Security · DAST', name: 'Live app scanning', desc: "Dynamic Application Security Testing — attacks the live running app the way a hacker would, trying to break in from the outside.", more: "\"Dynamic\" means it tests the app while it's actually running — like a safety inspector trying every door and window on a finished building rather than just reading the blueprints.", examples: [
+        { name: 'Invicti', url: 'https://www.invicti.com' },
+        { name: 'OWASP ZAP', url: 'https://www.zaproxy.org' },
+        { name: 'Burp Suite', url: 'https://portswigger.net/burp' }
+    ]},
+    { cat: 'Performance testing', name: 'Load & performance testing', desc: "Simulates thousands of people uploading photos at the exact same time, to check the system doesn't slow down or crash under real demand.", more: "Some of these are free and open-source, built by independent communities; others are managed cloud services run by a provider like Microsoft.", examples: [
+        { name: 'JMeter', url: 'https://jmeter.apache.org' },
+        { name: 'k6', url: 'https://k6.io' },
+        { name: 'Azure Load Testing', url: 'https://azure.microsoft.com/en-us/products/load-testing' }
+    ]}
   ]},
   { stage: 'Deployment', when: 'Going live, carefully', tools: [
     { cat: 'Shipping it', name: 'CI/CD pipeline', desc: "An automated conveyor belt that takes finished, tested code and safely puts it live, the same way every time.", url: null, more: "CI/CD isn't one product — it's a pattern, usually built with tools like GitHub Actions, Azure Pipelines, or Jenkins, that automatically runs tests and deploys code without a human manually copying files." },
@@ -1953,7 +1973,10 @@ toolStagesEl.innerHTML = toolStages.map((block, i) => `
           <p class="tool-desc">${t.desc}</p>
           <div class="tool-more">
             <p class="tool-more-text">${t.more}</p>
-            ${t.url ? `<a href="${t.url}" target="_blank" rel="noopener noreferrer" class="tool-link" onclick="event.stopPropagation()">Visit site →</a>` : `<span class="tool-link tool-link-none">No single named tool — see note above</span>`}
+            ${t.examples
+              ? `<div class="tool-examples"><span class="tool-examples-label">Examples:</span> ${t.examples.map(ex => `<a href="${ex.url}" target="_blank" rel="noopener noreferrer" class="tool-link" onclick="event.stopPropagation()">${ex.name}</a>`).join(' ')}</div>`
+              : (t.url ? `<a href="${t.url}" target="_blank" rel="noopener noreferrer" class="tool-link" onclick="event.stopPropagation()">Visit site →</a>` : `<span class="tool-link tool-link-none">No single named tool — see note above</span>`)
+            }
           </div>
           <span class="tool-expand-hint">Tap for details</span>
         </div>
@@ -2005,7 +2028,7 @@ const evolution = [
     detail: "The term has been debated for years — what exactly counts as \"full\" has kept shifting as the technology stack itself has grown more complex.",
     sourceLabel: 'Wikipedia: Full-stack developer', sourceUrl: 'https://en.wikipedia.org/wiki/Full_stack' },
   { year: '~2012–2014', plotYear: 2012, tag: 'process', title: 'DevSecOps',
-    blurb: "Security used to be checked right at the end, often too late to fix cheaply. DevSecOps folds security into every stage — the same \"shift left\" idea you saw with Snyk and Invicti on the Tools tab.",
+    blurb: "Security used to be checked right at the end, often too late to fix cheaply. DevSecOps folds security into every stage — the same \"shift left\" idea you saw with the static and live-app scanning tools on the Tools tab.",
     detail: "\"Shift left\" refers to moving a task earlier on a left-to-right pipeline diagram — security moves from the far right (the end) toward the left (the start).",
     sourceLabel: 'Red Hat: What is DevSecOps?', sourceUrl: 'https://www.redhat.com/en/topics/devops/what-is-devsecops' },
   { year: '~2010s', plotYear: 2010, tag: 'process', title: 'Predictive AI',
@@ -2379,9 +2402,9 @@ initOrderGame();
 
 // ---------- Activity 2: Quiz ----------
 const quizQuestions = [
-  { q: "Which tool checks the source code itself for known security vulnerabilities, before the app even runs?", options: ["Invicti", "Snyk", "Playwright", "JMeter"], correct: 1 },
+  { q: "Which type of testing checks the source code itself for known security vulnerabilities, before the app even runs?", options: ["DAST (Dynamic testing)", "SAST (Static testing)", "Functional testing", "Performance testing"], correct: 1 },
   { q: "What's the main difference between an Incident and a Problem in ServiceNow?", options: [ "An Incident is more serious than a Problem", "A Problem only applies to hardware, not software", "An Incident is about fixing it now; a Problem is about stopping it happening again", "There's no real difference — they're the same thing" ], correct: 2 },
-  { q: "Which tool replays the same test automatically every time the code changes?", options: ["Figma", "Playwright", "ServiceNow", "Loom"], correct: 1 },
+  { q: "Which type of tool replays the same test automatically every time the code changes?", options: ["A design tool", "A test automation tool", "A ticketing system", "A screen recorder"], correct: 1 },
   { q: "What does a feature flag let a team do?", options: [ "Permanently delete old features", "Turn a new feature on for a small slice of customers first", "Automatically write code", "Track customer complaints" ], correct: 1 },
   { q: "Where does a User Story usually get written up and tracked?", options: ["Figma", "Datadog", "Jira / Azure DevOps", "Slack"], correct: 2 },
   { q: "What's the key difference between Generative AI and Agentic AI?", options: [ "Generative AI is older technology that no longer gets used", "Agentic AI can only generate text, not code", "Generative AI creates content when asked; Agentic AI can plan and take multiple actions on its own", "There's no meaningful difference" ], correct: 2 },
@@ -2549,9 +2572,9 @@ const spotbugRounds = [
     explain: "The bug: <b>10GB</b> should be <b>10MB</b>. A 10-gigabyte photo limit would be enormous — most phone photos are a few megabytes. This is exactly the kind of typo that acceptance criteria are meant to catch before anyone builds the wrong thing." },
   { label: 'Round 2 of 3 — Test results', type: 'prose',
     html: `<ul class="checklist">
-      <li><span class="box pass"></span> <span class="sb-part" data-correct="false">Functional</span> (Tools used: Playwright) — automated test re-runs all 14 upload scenarios on every code change</li>
-      <li><span class="box pass"></span> <span class="sb-part" data-correct="true">Security · SAST</span> (Tools used: Snyk) — scan of the live running app finds no way to bypass the file-type check</li>
-      <li><span class="box pass"></span> <span class="sb-part" data-correct="false">Performance</span> (Tools used: JMeter) — 5,000 simulated uploads at once, page stays fast</li>
+      <li><span class="box pass"></span> <span class="sb-part" data-correct="false">Functional</span> (Test automation tooling) — automated test re-runs all 14 upload scenarios on every code change</li>
+      <li><span class="box pass"></span> <span class="sb-part" data-correct="true">Security · SAST</span> (Static code scanning tooling) — scan of the live running app finds no way to bypass the file-type check</li>
+      <li><span class="box pass"></span> <span class="sb-part" data-correct="false">Performance</span> (Load testing tooling) — 5,000 simulated uploads at once, page stays fast</li>
     </ul>`,
     explain: "The bug: <b>SAST</b> scans the source code <i>without running it</i> — checking the live running app is the definition of <b>DAST</b>, not SAST. Mixing these up matters: SAST and DAST catch genuinely different kinds of problems." },
   { label: 'Round 3 of 3 — Deployment log', type: 'snippet',
